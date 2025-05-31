@@ -54,7 +54,7 @@ class _StartViewBodyState extends State<StartViewBody> {
                 ),
               ),
               const Spacer(),
-              const CustomAnimatedButton(),
+              const StartAnimatedButton(),
               const SizedBox(height: 24),
             ],
           );
@@ -62,25 +62,35 @@ class _StartViewBodyState extends State<StartViewBody> {
   }
 }
 
-class CustomAnimatedButton extends StatefulWidget {
-  const CustomAnimatedButton({
+class StartAnimatedButton extends StatefulWidget {
+  const StartAnimatedButton({
     super.key,
   });
   @override
-  State<CustomAnimatedButton> createState() => _CustomAnimatedButtonState();
+  State<StartAnimatedButton> createState() => _StartAnimatedButtonState();
 }
 
-class _CustomAnimatedButtonState extends State<CustomAnimatedButton>
+class _StartAnimatedButtonState extends State<StartAnimatedButton>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> widthAnimation;
-  late Animation<double> iconAnimation;
+  late Animation<double> posAnimation;
+  late Animation<double> textOp;
+  late Animation<BorderRadius> borderAnimation;
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 350));
-    // widthAnimation = Tween<double>(begin: ,end: 0.91608).animate(_controller);
+    widthAnimation = Tween<double>(begin: 0.13608, end: 0.91608)
+        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    posAnimation = Tween<double>(begin: 150, end: 0)
+        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    textOp = Tween<double>(begin: 0, end: 1)
+        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    borderAnimation = Tween<BorderRadius>(
+            begin: BorderRadius.circular(100), end: BorderRadius.circular(8.8))
+        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
   @override
@@ -92,20 +102,40 @@ class _CustomAnimatedButtonState extends State<CustomAnimatedButton>
         } else if (controller.page == 2 && _controller.status.isDismissed) {
           _controller.forward();
         }
-        return Container(
-          width: 0.91608 * MediaQuery.of(context).size.width,
-          height: 0.05484 * MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.8),
-            color: Constants.buttonsMainColor,
-          ),
-          child: const Center(
-            child: Text(
-              "Let's Go",
-              style: Styles.buttonText1,
-            ),
-          ),
-        );
+        return AnimatedBuilder(
+            animation: _controller,
+            builder: (context, _) {
+              return Transform.translate(
+                offset: Offset(posAnimation.value, 0),
+                child: Container(
+                  width:
+                      widthAnimation.value * MediaQuery.of(context).size.width,
+                  height: 0.05484 * MediaQuery.of(context).size.height,
+                  decoration: BoxDecoration(
+                    borderRadius: borderAnimation.value,
+                    color: Constants.buttonsMainColor,
+                  ),
+                  child: Stack(
+                    alignment: AlignmentDirectional.center,
+                    children: [
+                      const Positioned(
+                        left: 12,
+                        child: Icon(
+                          Icons.arrow_forward_rounded,
+                          color: Colors.white,
+                          size: 25,
+                        ),
+                      ),
+                      Text(
+                        "Let's Go",
+                        style: Styles.buttonText1.copyWith(
+                            color: Colors.white.withOpacity(textOp.value)),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            });
       },
     );
   }
