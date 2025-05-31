@@ -6,7 +6,10 @@ class StartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SecondView();
+    return PageView(physics: const BouncingScrollPhysics(), children: const [
+      FirstView(),
+      SecondView(),
+    ]);
   }
 }
 
@@ -94,6 +97,7 @@ class _SecondViewState extends State<SecondView>
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
     opcityAnimation = Tween<double>(begin: 0, end: 1)
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
+
     _controller.forward();
   }
 
@@ -111,53 +115,20 @@ class _SecondViewState extends State<SecondView>
                 child: Stack(
                   alignment: AlignmentDirectional.center,
                   children: [
-                    Positioned(
-                      top: animationPos1.value.dx *
-                          MediaQuery.of(context).size.height,
-                      right: animationPos1.value.dy *
-                          MediaQuery.of(context).size.width,
-                      child: SizedBox(
-                        height: 0.20000 * MediaQuery.of(context).size.height,
-                        width: 0.3577 * MediaQuery.of(context).size.width,
-                        child: Image.asset(
-                          'assets/images/start_images/Group 10.png',
-                          height: 69.1,
-                          width: 69.1,
-                          opacity: opcityAnimation,
-                        ),
-                      ),
+                    CustomAnimatedImage(
+                      image: 'assets/images/start_images/Group 10.png',
+                      animationPos1: animationPos1,
+                      opcityAnimation: opcityAnimation,
                     ),
-                    Positioned(
-                      top: animationPos2.value.dx *
-                          MediaQuery.of(context).size.height,
-                      right: animationPos2.value.dy *
-                          MediaQuery.of(context).size.width,
-                      child: SizedBox(
-                        height: 0.20000 * MediaQuery.of(context).size.height,
-                        width: 0.3577 * MediaQuery.of(context).size.width,
-                        child: Image.asset(
-                          'assets/images/start_images/Mask group(5).png',
-                          height: 69.1,
-                          width: 69.1,
-                          opacity: opcityAnimation,
-                        ),
-                      ),
+                    CustomAnimatedImage(
+                      image: 'assets/images/start_images/Mask group(5).png',
+                      animationPos1: animationPos2,
+                      opcityAnimation: opcityAnimation,
                     ),
-                    Positioned(
-                      top: animationPos3.value.dx *
-                          MediaQuery.of(context).size.height,
-                      right: animationPos3.value.dy *
-                          MediaQuery.of(context).size.width,
-                      child: SizedBox(
-                        height: 0.20000 * MediaQuery.of(context).size.height,
-                        width: 0.3577 * MediaQuery.of(context).size.width,
-                        child: Image.asset(
-                          'assets/images/start_images/Mask group(6).png',
-                          height: 69.1,
-                          width: 69.1,
-                          opacity: opcityAnimation,
-                        ),
-                      ),
+                    CustomAnimatedImage(
+                      image: 'assets/images/start_images/Mask group(6).png',
+                      animationPos1: animationPos3,
+                      opcityAnimation: opcityAnimation,
                     ),
                     Padding(
                       padding: EdgeInsets.only(
@@ -199,5 +170,35 @@ class _SecondViewState extends State<SecondView>
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+}
+
+class CustomAnimatedImage extends StatelessWidget {
+  const CustomAnimatedImage({
+    super.key,
+    required this.animationPos1,
+    required this.opcityAnimation,
+    required this.image,
+  });
+
+  final Animation<Offset> animationPos1;
+  final Animation<double> opcityAnimation;
+  final String image;
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: animationPos1.value.dx * MediaQuery.of(context).size.height,
+      right: animationPos1.value.dy * MediaQuery.of(context).size.width,
+      child: SizedBox(
+        height: 0.20000 * MediaQuery.of(context).size.height,
+        width: 0.3577 * MediaQuery.of(context).size.width,
+        child: Image.asset(
+          image,
+          height: 69.1,
+          width: 69.1,
+          opacity: opcityAnimation,
+        ),
+      ),
+    );
   }
 }
