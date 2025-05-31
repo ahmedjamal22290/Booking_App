@@ -1,4 +1,4 @@
-import 'package:booking_app/features/start/presention/views/start_view.dart';
+import 'package:booking_app/features/start/presentation/views/start_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
