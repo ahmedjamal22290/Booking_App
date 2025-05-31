@@ -69,30 +69,31 @@ class SecondView extends StatefulWidget {
 class _SecondViewState extends State<SecondView>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<Offset> AnimationPos1;
-  late Animation<Offset> AnimationPos2;
-  late Animation<Offset> AnimationPos3;
+  late Animation<Offset> animationPos1;
+  late Animation<Offset> animationPos2;
+  late Animation<Offset> animationPos3;
   late Animation<double> opcityAnimation;
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 450));
-    AnimationPos1 = Tween<Offset>(
+        vsync: this, duration: const Duration(milliseconds: 500));
+    animationPos1 = Tween<Offset>(
             end: const Offset(0.18655, 0.6422), //top    // right
             begin: const Offset(0.02655, 0.9422))
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
-    AnimationPos2 = Tween<Offset>(
+    animationPos2 = Tween<Offset>(
             end: const Offset(0.0860, 0.41496), //top    // right
             begin: const Offset(0.0010, 0.61496))
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
-    AnimationPos3 = Tween<Offset>(
+    animationPos3 = Tween<Offset>(
             begin: const Offset(0.04085, -0.19327), //top    // right
             end: const Offset(0.14085, 0.09327))
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
-
+    opcityAnimation = Tween<double>(begin: 0, end: 1)
+        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
     _controller.forward();
   }
 
@@ -111,9 +112,9 @@ class _SecondViewState extends State<SecondView>
                   alignment: AlignmentDirectional.center,
                   children: [
                     Positioned(
-                      top: AnimationPos1.value.dx *
+                      top: animationPos1.value.dx *
                           MediaQuery.of(context).size.height,
-                      right: AnimationPos1.value.dy *
+                      right: animationPos1.value.dy *
                           MediaQuery.of(context).size.width,
                       child: SizedBox(
                         height: 0.20000 * MediaQuery.of(context).size.height,
@@ -122,13 +123,14 @@ class _SecondViewState extends State<SecondView>
                           'assets/images/start_images/Group 10.png',
                           height: 69.1,
                           width: 69.1,
+                          opacity: opcityAnimation,
                         ),
                       ),
                     ),
                     Positioned(
-                      top: AnimationPos2.value.dx *
+                      top: animationPos2.value.dx *
                           MediaQuery.of(context).size.height,
-                      right: AnimationPos2.value.dy *
+                      right: animationPos2.value.dy *
                           MediaQuery.of(context).size.width,
                       child: SizedBox(
                         height: 0.20000 * MediaQuery.of(context).size.height,
@@ -137,13 +139,14 @@ class _SecondViewState extends State<SecondView>
                           'assets/images/start_images/Mask group(5).png',
                           height: 69.1,
                           width: 69.1,
+                          opacity: opcityAnimation,
                         ),
                       ),
                     ),
                     Positioned(
-                      top: AnimationPos3.value.dx *
+                      top: animationPos3.value.dx *
                           MediaQuery.of(context).size.height,
-                      right: AnimationPos3.value.dy *
+                      right: animationPos3.value.dy *
                           MediaQuery.of(context).size.width,
                       child: SizedBox(
                         height: 0.20000 * MediaQuery.of(context).size.height,
@@ -152,6 +155,7 @@ class _SecondViewState extends State<SecondView>
                           'assets/images/start_images/Mask group(6).png',
                           height: 69.1,
                           width: 69.1,
+                          opacity: opcityAnimation,
                         ),
                       ),
                     ),
