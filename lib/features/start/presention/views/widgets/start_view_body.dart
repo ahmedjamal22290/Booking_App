@@ -44,6 +44,22 @@ class _StartViewBodyState extends State<StartViewBody> {
             activeDotColor: Constants.buttonsMainColor,
           ),
         ),
+        const Spacer(),
+        Container(
+          width: 0.91608 * MediaQuery.of(context).size.width,
+          height: 0.05484 * MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.8),
+            color: Constants.buttonsMainColor,
+          ),
+          child: const Center(
+            child: Text(
+              "Let's Go",
+              style: Styles.buttonText1,
+            ),
+          ),
+        ),
+        const SizedBox(height: 24),
       ],
     );
   }
