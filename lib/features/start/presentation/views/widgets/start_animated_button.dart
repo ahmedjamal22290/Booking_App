@@ -49,31 +49,36 @@ class _StartAnimatedButtonState extends State<StartAnimatedButton>
             builder: (context, _) {
               return Transform.translate(
                 offset: Offset(posAnimation.value, 0),
-                child: Container(
-                  width:
-                      widthAnimation.value * MediaQuery.of(context).size.width,
-                  height: 0.05484 * MediaQuery.of(context).size.height,
-                  decoration: BoxDecoration(
-                    borderRadius: borderAnimation.value,
-                    color: Constants.buttonsMainColor,
-                  ),
-                  child: Stack(
-                    alignment: AlignmentDirectional.center,
-                    children: [
-                      const Positioned(
-                        left: 12,
-                        child: Icon(
-                          Icons.arrow_forward_rounded,
-                          color: Colors.white,
-                          size: 25,
+                child: GestureDetector(
+                  onTap: () {
+                    controller.nextPage();
+                  },
+                  child: Container(
+                    width: widthAnimation.value *
+                        MediaQuery.of(context).size.width,
+                    height: 0.05484 * MediaQuery.of(context).size.height,
+                    decoration: BoxDecoration(
+                      borderRadius: borderAnimation.value,
+                      color: Constants.buttonsMainColor,
+                    ),
+                    child: Stack(
+                      alignment: AlignmentDirectional.center,
+                      children: [
+                        const Positioned(
+                          left: 12,
+                          child: Icon(
+                            Icons.arrow_forward_rounded,
+                            color: Colors.white,
+                            size: 25,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "Let's Go",
-                        style: Styles.buttonText1.copyWith(
-                            color: Colors.white.withOpacity(textOp.value)),
-                      ),
-                    ],
+                        Text(
+                          "Let's Go",
+                          style: Styles.buttonText1.copyWith(
+                              color: Colors.white.withOpacity(textOp.value)),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               );
