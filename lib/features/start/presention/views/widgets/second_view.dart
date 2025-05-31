@@ -95,9 +95,18 @@ class _SecondViewState extends State<SecondView>
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Travel safely, comfortably & easily',
-                        style: Styles.headlines,
+                        'Relax. Unwind. Feel at home, wherever you go.',
+                        style: Styles.headlines1,
                         textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 8.8),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 12.0),
+                        child: Text(
+                          'Enjoy a warm, welcoming stay that feels just like home — with a touch of hotel luxury.',
+                          style: Styles.description1,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ],
                   ))

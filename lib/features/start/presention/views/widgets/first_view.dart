@@ -39,9 +39,18 @@ class FirstView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Travel safely, comfortably & easily',
-                  style: Styles.headlines,
+                  'Your journey begins with comfort and care.',
+                  style: Styles.headlines1,
                   textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 8.8),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Text(
+                    'Start your trip stress-free with smooth check-ins and cozy stays designed for your comfort.',
+                    style: Styles.description1,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             ))

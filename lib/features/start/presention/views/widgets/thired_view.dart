@@ -134,9 +134,18 @@ class _ThiredViewState extends State<ThiredView>
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Travel safely, comfortably & easily',
-                        style: Styles.headlines,
+                        'Let’s Find Your Sweet & Dream Place',
+                        style: Styles.headlines1,
                         textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 8.8),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 12.0),
+                        child: Text(
+                          'Get the opportunity to stay that you dream of at an affordable price',
+                          style: Styles.description1,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ],
                   ))
