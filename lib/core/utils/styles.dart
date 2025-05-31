@@ -16,4 +16,11 @@ abstract class Styles {
     fontWeight: FontWeight.w400,
     letterSpacing: 0.3,
   );
+  static const TextStyle buttonText1 = TextStyle(
+    fontSize: 17.26,
+    color: Colors.white,
+    fontFamily: 'sf_pro',
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0,
+  );
 }
