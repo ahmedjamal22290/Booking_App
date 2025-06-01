@@ -9,6 +9,12 @@ abstract class Styles {
     height: 1.2,
     fontWeight: FontWeight.w500,
   );
+  static const TextStyle mainWidgetsText1 = TextStyle(
+    fontSize: 12.2,
+    color: Colors.white,
+    fontFamily: 'sf_pro',
+    fontWeight: FontWeight.w600,
+  );
   static const TextStyle description1 = TextStyle(
     fontSize: 15.26,
     color: Color(0xff787878),

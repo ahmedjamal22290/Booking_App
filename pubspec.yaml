@@ -54,6 +54,7 @@ flutter:
   assets:
     - assets/images/start_images/
     - assets/images/home_view_images/
+    - assets/icons/home_view_icons/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
