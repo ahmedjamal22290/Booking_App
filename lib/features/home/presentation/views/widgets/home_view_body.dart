@@ -7,11 +7,17 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
-          'assets/images/home_view_images/Rectangle 13.jpg',
-          width: MediaQuery.sizeOf(context).width,
-          height: 0.409670 * MediaQuery.sizeOf(context).height,
-          fit: BoxFit.cover,
+        Container(
+          color: Colors.black,
+          child: Opacity(
+            opacity: 0.75,
+            child: Image.asset(
+              'assets/images/home_view_images/Rectangle 13.jpg',
+              width: MediaQuery.sizeOf(context).width,
+              height: 0.409670 * MediaQuery.sizeOf(context).height,
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
         Align(
           alignment: Alignment.bottomCenter,
