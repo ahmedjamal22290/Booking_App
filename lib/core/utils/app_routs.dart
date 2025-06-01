@@ -1,5 +1,6 @@
 import 'package:booking_app/features/home/presentation/views/home_view.dart';
 import 'package:booking_app/features/start/presentation/views/start_view.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class AppRouts {
@@ -13,6 +14,9 @@ abstract class AppRouts {
     GetPage(
       name: homeView,
       page: () => const HomeView(),
+      transition: Transition.fadeIn,
+      curve: Curves.easeInOutCirc,
+      transitionDuration: const Duration(milliseconds: 400),
     ),
   ];
 }
