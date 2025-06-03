@@ -7,6 +7,7 @@ class SearchingController extends GetxController
   late final AnimationController animationController;
   late final Animation<double> searchAnimation;
   late final Animation<double> mainContanierAnimation;
+  late final Animation<double> textOpictyAnimation;
   bool isActive = false;
   @override
   void onInit() {
@@ -17,21 +18,25 @@ class SearchingController extends GetxController
       duration: const Duration(milliseconds: 400),
     );
     searchAnimation =
-        Tween<double>(begin: 124.76, end: 40).animate(animationController);
+        Tween<double>(begin: 124.76, end: 0).animate(animationController);
     mainContanierAnimation =
-        Tween<double>(begin: 124.76, end: 40).animate(animationController);
+        Tween<double>(begin: 260.66, end: 120.66).animate(animationController);
+    mainContanierAnimation =
+        Tween<double>(begin: 1, end: 0).animate(animationController);
   }
 
   void searchTaped() {
     if (!isActive) {
       animationController.forward();
       isActive = true;
+      update();
     }
   }
 
   void cancelSearch() {
     animationController.reverse();
     isActive = false;
+    update();
   }
 
   @override

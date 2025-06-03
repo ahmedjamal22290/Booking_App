@@ -19,13 +19,13 @@ class HomeViewBody extends StatelessWidget {
           child: WelcomeBar(),
         ),
         Positioned(
-          top: 124.76,
+          top: 0.0,
           left: 11.52,
           right: 11.52,
           child: CustomSearchTextField(),
         ),
         Positioned(
-          top: 260.66,
+          top: 120.66,
           child: CustomMainContainer(
             child: Column(),
           ),
