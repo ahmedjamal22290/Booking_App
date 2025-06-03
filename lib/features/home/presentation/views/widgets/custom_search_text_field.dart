@@ -1,18 +1,21 @@
 import 'dart:developer';
-
+import 'package:booking_app/features/home/controllers/search_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
+    final searchController = Get.find<SearchingController>();
+
     return Container(
       height: 62.6,
       margin: const EdgeInsets.only(top: 47),
       child: TextFormField(
+        controller: searchController.textController,
         onTap: () {
           log('when the UI will change ');
         },

@@ -1,3 +1,4 @@
+import 'package:booking_app/features/home/bindings/home_bindings.dart';
 import 'package:booking_app/features/home/presentation/views/home_view.dart';
 import 'package:booking_app/features/start/presentation/views/start_view.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ abstract class AppRouts {
       name: homeView,
       page: () => const HomeView(),
       transition: Transition.fadeIn,
+      binding: HomeBindings(),
       curve: Curves.easeInOutCirc,
       transitionDuration: const Duration(milliseconds: 400),
     ),
