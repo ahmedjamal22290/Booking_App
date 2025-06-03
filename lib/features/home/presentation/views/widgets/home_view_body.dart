@@ -24,8 +24,11 @@ class HomeViewBody extends StatelessWidget {
           right: 11.52,
           child: CustomSearchTextField(),
         ),
-        CustomMainContainer(
-          child: Column(),
+        Positioned(
+          top: 260.66,
+          child: CustomMainContainer(
+            child: Column(),
+          ),
         ),
       ],
     );
