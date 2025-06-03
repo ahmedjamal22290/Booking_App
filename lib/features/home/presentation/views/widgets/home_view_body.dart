@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:booking_app/features/home/controllers/search_controller.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/custom_background_image.dart';
@@ -18,6 +20,17 @@ class HomeViewBody extends StatelessWidget {
           return Stack(
             children: [
               CustomBackgroundImage(),
+              ClipRRect(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: controller.blurAnimation.value,
+                    sigmaY: controller.blurAnimation.value,
+                  ),
+                  child: Container(
+                    color: Colors.black.withOpacity(0),
+                  ),
+                ),
+              ),
               Positioned(
                 top: 47.02,
                 left: 0,

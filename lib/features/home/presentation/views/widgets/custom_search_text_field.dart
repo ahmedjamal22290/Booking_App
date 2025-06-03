@@ -20,19 +20,36 @@ class CustomSearchTextField extends StatelessWidget {
             searchController.searchTaped();
           },
           decoration: InputDecoration(
-            suffixIcon: IconButton(
-                onPressed: () {
-                  if (searchController.isActive) {
-                    searchController.cancelSearch();
-                  }
-                },
-                icon: Icon(
-                  searchController.isActive
-                      ? Icons.cancel_outlined
-                      : Icons.search,
-                  size: 30,
-                  color: const Color(0xffA3A3A3),
-                )),
+            suffixIcon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              transitionBuilder: (child, animation) {
+                return RotationTransition(
+                  turns: Tween<double>(begin: 0.75, end: 1).animate(animation),
+                  child: FadeTransition(opacity: animation, child: child),
+                );
+              },
+              child: searchController.isActive
+                  ? IconButton(
+                      key: const ValueKey('cancel'),
+                      onPressed: () {
+                        searchController.cancelSearch();
+                      },
+                      icon: const Icon(
+                        Icons.cancel_outlined,
+                        size: 30,
+                        color: Color(0xffA3A3A3),
+                      ),
+                    )
+                  : IconButton(
+                      key: const ValueKey('search'),
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.search,
+                        size: 30,
+                        color: Color(0xffA3A3A3),
+                      ),
+                    ),
+            ),
             fillColor: Colors.white,
             filled: true,
             hintText: 'Look for homestay',
