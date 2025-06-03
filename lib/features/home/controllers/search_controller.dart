@@ -7,7 +7,7 @@ class SearchingController extends GetxController
   late final AnimationController animationController;
   late final Animation<double> searchAnimation;
   late final Animation<double> mainContanierAnimation;
-  late final Animation<double> textOpictyAnimation;
+  late final Animation<double> textOpacityAnimation;
   bool isActive = false;
   @override
   void onInit() {
@@ -21,7 +21,7 @@ class SearchingController extends GetxController
         Tween<double>(begin: 124.76, end: 0).animate(animationController);
     mainContanierAnimation =
         Tween<double>(begin: 260.66, end: 120.66).animate(animationController);
-    mainContanierAnimation =
+    textOpacityAnimation =
         Tween<double>(begin: 1, end: 0).animate(animationController);
   }
 
