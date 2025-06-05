@@ -8,12 +8,14 @@ class HotelItemWidget extends StatelessWidget {
     required this.city,
     required this.price,
     required this.rating,
+    required this.image,
   });
-  final String title, city, price;
+  final String title, city, price, image;
   final double rating;
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(right: 11.73),
       height: (160.26 / 594.99).toDouble() * MediaQuery.sizeOf(context).height,
       width: (106.52 / 274.46).toDouble() * MediaQuery.sizeOf(context).width,
       decoration: BoxDecoration(
@@ -24,7 +26,7 @@ class HotelItemWidget extends StatelessWidget {
         child: Stack(
           children: [
             Image.asset(
-              'assets/images/home_view_images/test hottel image.jpg',
+              image,
               fit: BoxFit.cover,
               height: double.infinity,
               width: double.infinity,

@@ -33,11 +33,11 @@ class NearHotelSection extends StatelessWidget {
         ),
         const SizedBox(height: 9.72),
         SizedBox(
-            height: (160.26 / 594.99).toDouble() *
-                MediaQuery.sizeOf(context).height,
-            width:
-                (106.52 / 274.46).toDouble() * MediaQuery.sizeOf(context).width,
-            child: child),
+          height:
+              (160.26 / 594.99).toDouble() * MediaQuery.sizeOf(context).height,
+          width: MediaQuery.sizeOf(context).width,
+          child: child,
+        ),
       ],
     );
   }

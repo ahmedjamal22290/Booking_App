@@ -48,12 +48,43 @@ class HomeViewBody extends StatelessWidget {
               ),
               Positioned(
                 top: controller.mainContanierAnimation.value,
-                child: const CustomMainContainer(
-                  child: HotelItemWidget(
-                    title: 'Paradise Resort',
-                    city: 'Labuan Bajo',
-                    price: '480',
-                    rating: 4.8,
+                child: CustomMainContainer(
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: const [
+                      HotelItemWidget(
+                        image:
+                            'assets/images/home_view_images/test hottel image.jpg',
+                        title: 'Paradise Resort',
+                        city: 'Labuan Bajo',
+                        price: '480',
+                        rating: 4.8,
+                      ),
+                      HotelItemWidget(
+                        image:
+                            'assets/images/home_view_images/test hottel image.jpg',
+                        title: 'Paradise Resort',
+                        city: 'Labuan Bajo',
+                        price: '480',
+                        rating: 4.8,
+                      ),
+                      HotelItemWidget(
+                        image:
+                            'assets/images/home_view_images/test hottel image.jpg',
+                        title: 'Paradise Resort',
+                        city: 'Labuan Bajo',
+                        price: '480',
+                        rating: 4.8,
+                      ),
+                      HotelItemWidget(
+                        image:
+                            'assets/images/home_view_images/test hottel image.jpg',
+                        title: 'Paradise Resort',
+                        city: 'Labuan Bajo',
+                        price: '480',
+                        rating: 4.8,
+                      ),
+                    ],
                   ),
                 ),
               ),
