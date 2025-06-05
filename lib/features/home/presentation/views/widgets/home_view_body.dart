@@ -19,7 +19,7 @@ class HomeViewBody extends StatelessWidget {
         builder: (context, _) {
           return Stack(
             children: [
-              CustomBackgroundImage(),
+              const CustomBackgroundImage(),
               ClipRRect(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(
@@ -37,18 +37,56 @@ class HomeViewBody extends StatelessWidget {
                 right: 0,
                 child: Opacity(
                     opacity: controller.textOpacityAnimation.value,
-                    child: WelcomeBar()),
+                    child: const WelcomeBar()),
               ),
               Positioned(
                 top: controller.searchAnimation.value,
                 left: 11.52,
                 right: 11.52,
-                child: CustomSearchTextField(),
+                child: const CustomSearchTextField(),
               ),
               Positioned(
                 top: controller.mainContanierAnimation.value,
                 child: CustomMainContainer(
-                  child: Column(),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: (160.26 / 594.99).toDouble() *
+                            MediaQuery.sizeOf(context).height,
+                        width: (106.52 / 274.46).toDouble() *
+                            MediaQuery.sizeOf(context).width,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(21.66),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(21.66),
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                'assets/images/home_view_images/test hottel image.jpg',
+                                fit: BoxFit.cover,
+                                height: double.infinity,
+                                width: double.infinity,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.center,
+                                    colors: [
+                                      Colors.black.withOpacity(0.53),
+                                      Colors.transparent,
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
