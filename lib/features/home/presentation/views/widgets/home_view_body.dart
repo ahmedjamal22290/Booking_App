@@ -48,7 +48,7 @@ class HomeViewBody extends StatelessWidget {
               ),
               Positioned(
                 top: controller.mainContanierAnimation.value,
-                child: CustomMainContainer(
+                child: const CustomMainContainer(
                   child: HotelItemWidget(
                     title: 'Paradise Resort',
                     city: 'Labuan Bajo',
