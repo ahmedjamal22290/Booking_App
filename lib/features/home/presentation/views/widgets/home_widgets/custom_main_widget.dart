@@ -16,7 +16,16 @@ class CustomMainContainer extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(18.66), topRight: Radius.circular(18.66)),
       ),
-      child: child,
+      child: Column(
+        children: [
+          SizedBox(
+              height: (160.26 / 594.99).toDouble() *
+                  MediaQuery.sizeOf(context).height,
+              width: (106.52 / 274.46).toDouble() *
+                  MediaQuery.sizeOf(context).width,
+              child: child),
+        ],
+      ),
     );
   }
 }
