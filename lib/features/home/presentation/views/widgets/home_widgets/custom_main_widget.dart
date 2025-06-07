@@ -1,4 +1,5 @@
 import 'package:booking_app/core/utils/styles.dart';
+import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/explore_item.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/near_hotel_list_builder.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/near_hotel_section.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/view_all_button.dart';
@@ -81,62 +82,10 @@ class ExploreHotelsBuilder extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: 15,
       itemBuilder: (context, index) {
-        return Container(
-          margin: const EdgeInsets.only(right: 11.73),
-          height:
-              (160.26 / 594.99).toDouble() * MediaQuery.sizeOf(context).height,
-          width:
-              (146.52 / 274.46).toDouble() * MediaQuery.sizeOf(context).width,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(21.66),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(21.66),
-            child: Stack(
-              children: [
-                Image.asset(
-                  'assets/images/home_view_images/test hottel image.jpg',
-                  fit: BoxFit.cover,
-                  height: double.infinity,
-                  width: double.infinity,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.center,
-                      colors: [
-                        Colors.black.withOpacity(0.53),
-                        Colors.transparent,
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 115.36,
-                  right: 0,
-                  left: (136.52 / 274.46).toDouble() *
-                      MediaQuery.sizeOf(context).width /
-                      2,
-                  bottom: 1.64,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        'city',
-                        style: Styles.itemsTitleStyle,
-                      ),
-                      Text(
-                        'title',
-                        style: Styles.itemsSubtitleStyle,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
+        return const ExploreItem(
+          image: 'assets/images/home_view_images/test hottel image.jpg',
+          name: 'Paradise Resort',
+          city: 'Labuan Bajo',
         );
       },
     );
