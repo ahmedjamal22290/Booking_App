@@ -1,5 +1,5 @@
-import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/explore_hotels_section.dart';
-import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/near_hotel_section.dart';
+import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/sections/explore_hotels_section.dart';
+import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/sections/near_hotel_section.dart';
 import 'package:flutter/material.dart';
 
 class CustomMainContainer extends StatelessWidget {

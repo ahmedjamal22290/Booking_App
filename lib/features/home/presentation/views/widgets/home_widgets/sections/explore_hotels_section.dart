@@ -1,10 +1,10 @@
 import 'package:booking_app/core/utils/styles.dart';
-import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/near_hotel_list_builder.dart';
+import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/builders/explore_hotel_builder.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/view_all_button.dart';
 import 'package:flutter/material.dart';
 
-class NearHotelSection extends StatelessWidget {
-  const NearHotelSection({
+class ExploreHotelsSection extends StatelessWidget {
+  const ExploreHotelsSection({
     super.key,
   });
 
@@ -16,7 +16,7 @@ class NearHotelSection extends StatelessWidget {
         Row(
           children: [
             Text(
-              'Hotels Near You',
+              'Explore Hotels',
               style: Styles.mainWidgetsText1.copyWith(
                 color: Colors.black,
                 fontSize: 21.66,
@@ -32,9 +32,9 @@ class NearHotelSection extends StatelessWidget {
         const SizedBox(height: 9.72),
         SizedBox(
           height:
-              (160.26 / 594.99).toDouble() * MediaQuery.sizeOf(context).height,
+              (130.26 / 594.99).toDouble() * MediaQuery.sizeOf(context).height,
           width: MediaQuery.sizeOf(context).width,
-          child: const NearHotelListBuilder(),
+          child: const ExploreHotelsBuilder(),
         ),
       ],
     );
