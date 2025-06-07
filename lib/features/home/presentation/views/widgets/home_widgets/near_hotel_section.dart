@@ -16,7 +16,7 @@ class NearHotelSection extends StatelessWidget {
         Row(
           children: [
             Text(
-              'Hotel Near You',
+              'Hotels Near You',
               style: Styles.mainWidgetsText1.copyWith(
                 color: Colors.black,
                 fontSize: 21.66,

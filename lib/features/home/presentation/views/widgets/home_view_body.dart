@@ -4,7 +4,6 @@ import 'package:booking_app/features/home/controllers/search_controller.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/custom_background_image.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/custom_main_widget.dart';
-import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/near_hotel_list_builder.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/welcome_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
