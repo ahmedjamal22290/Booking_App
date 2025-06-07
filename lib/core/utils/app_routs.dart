@@ -14,7 +14,7 @@ abstract class AppRouts {
     ),
     GetPage(
       name: homeView,
-      page: () => const HomeView(),
+      page: () => HomeView(),
       transition: Transition.fadeIn,
       binding: HomeBindings(),
       curve: Curves.easeInOutCirc,
