@@ -1,14 +1,12 @@
 import 'package:booking_app/core/utils/styles.dart';
+import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/near_hotel_list_builder.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/view_all_button.dart';
 import 'package:flutter/material.dart';
 
 class NearHotelSection extends StatelessWidget {
   const NearHotelSection({
     super.key,
-    required this.child,
   });
-
-  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +34,7 @@ class NearHotelSection extends StatelessWidget {
           height:
               (160.26 / 594.99).toDouble() * MediaQuery.sizeOf(context).height,
           width: MediaQuery.sizeOf(context).width,
-          child: child,
+          child: const NearHotelListBuilder(),
         ),
       ],
     );

@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 class CustomMainContainer extends StatelessWidget {
   const CustomMainContainer({
     super.key,
-    required this.child,
   });
-  final Widget child;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,9 +15,9 @@ class CustomMainContainer extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(18.66), topRight: Radius.circular(18.66)),
       ),
-      child: Padding(
+      child: const Padding(
         padding: const EdgeInsets.only(left: 17.52, top: 17.27),
-        child: NearHotelSection(child: child),
+        child: NearHotelSection(),
       ),
     );
   }
