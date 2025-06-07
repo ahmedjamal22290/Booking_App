@@ -3,11 +3,20 @@ import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
+static const List<Widget> pages = [
+    HomeViewBody(),
+    Center(child: Text('Watchlist')),
+    Center(child: Text('Profile')),
+  ];
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    
+    return  SafeArea(
         child: Scaffold(
+          bottomNavigationBar:BottomNavigationBar(
+            items: 
+
+          ),
       body: HomeViewBody(),
     ));
   }
