@@ -16,7 +16,7 @@ class CustomNavigatorBar extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
-          offset: Offset(0, -0.5),
+          offset: const Offset(0, -0.5),
           blurRadius: 10,
           color: Colors.black.withOpacity(0.3),
         )
