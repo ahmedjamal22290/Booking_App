@@ -1,5 +1,7 @@
+import "package:booking_app/core/utils/constants.dart";
 import "package:booking_app/features/home/controllers/navigator_controller.dart";
 import "package:flutter/material.dart";
+import "package:flutter_svg/svg.dart";
 import "package:get/get.dart";
 
 class CustomNavigatorBar extends StatelessWidget {
@@ -15,14 +17,35 @@ class CustomNavigatorBar extends StatelessWidget {
       currentIndex: navController.selectedIndex.value,
       onTap: navController.changeTab,
       type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.blue,
+      selectedItemColor: Constants.buttonsMainColor,
       unselectedItemColor: Colors.grey,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+      selectedFontSize: 13,
+      unselectedFontSize: 12,
+      items: [
         BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border), label: 'Watchlist'),
+            icon: SvgPicture.asset(
+              'assets/icons/home_view_icons/home not selected .svg',
+            ),
+            activeIcon: SvgPicture.asset(
+              'assets/icons/home_view_icons/home selected .svg',
+            ),
+            label: 'Home'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline), label: 'Profile'),
+            icon: SvgPicture.asset(
+              'assets/icons/home_view_icons/watchlis not selected.svg',
+            ),
+            activeIcon: SvgPicture.asset(
+              'assets/icons/home_view_icons/watchlist selected.svg',
+            ),
+            label: 'Watchlist'),
+        BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/home_view_icons/profile not selected .svg',
+            ),
+            activeIcon: SvgPicture.asset(
+              'assets/icons/home_view_icons/profile selected.svg',
+            ),
+            label: 'Profile'),
       ],
     );
   }
