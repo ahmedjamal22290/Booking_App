@@ -1,3 +1,4 @@
+import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/cusom_shadow_image.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/details_custom_app_bar.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/image_details_widget.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/next_image_widget.dart';
@@ -57,39 +58,6 @@ class DetailsImageSection extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class CustomShadowImage extends StatelessWidget {
-  const CustomShadowImage({
-    super.key,
-    required this.image,
-  });
-  final String image;
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Image.asset(
-          image,
-          height: double.infinity,
-          width: double.infinity,
-          fit: BoxFit.cover,
-        ),
-        Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-              colors: [
-                Colors.black.withOpacity(0.4),
-                Colors.transparent,
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
