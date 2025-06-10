@@ -1,4 +1,6 @@
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/details_custom_app_bar.dart';
+import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/image_details_widget.dart';
+import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/next_image_widget.dart';
 import 'package:flutter/material.dart';
 
 class DetailsViewBody extends StatelessWidget {
@@ -43,10 +45,21 @@ class DetailsViewBody extends StatelessWidget {
                     ),
                   ),
                   const Positioned(
-                      top: 47.98,
-                      right: 13.52,
-                      left: 13.52,
-                      child: DetailsCustomAppBar()),
+                    top: 47.98,
+                    right: 13.52,
+                    left: 13.52,
+                    child: DetailsCustomAppBar(),
+                  ),
+                  const Positioned(
+                    bottom: 16.31,
+                    left: 13.52,
+                    child: ImageDetailsWidget(),
+                  ),
+                  const Positioned(
+                    bottom: 16.31,
+                    right: 13.52,
+                    child: NextImageWIdget(),
+                  ),
                 ],
               ),
             ),

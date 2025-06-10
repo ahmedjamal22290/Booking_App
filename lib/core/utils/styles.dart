@@ -43,4 +43,11 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
     letterSpacing: 0,
   );
+  static const TextStyle detailsMainTitle = TextStyle(
+    fontSize: 22.6,
+    color: Colors.white,
+    fontFamily: 'sf_pro',
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.02,
+  );
 }
