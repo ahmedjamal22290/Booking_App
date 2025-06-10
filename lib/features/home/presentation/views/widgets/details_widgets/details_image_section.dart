@@ -24,23 +24,19 @@ class DetailsImageSection extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            Image.asset(
-              'assets/images/home_view_images/test hottel image.jpg',
-              height: double.infinity,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    Colors.black.withOpacity(0.4),
-                    Colors.transparent,
-                  ],
+            PageView(
+              scrollDirection: Axis.horizontal,
+              children: const [
+                CustomShadowImage(
+                  image: 'assets/images/home_view_images/test hottel image.jpg',
                 ),
-              ),
+                CustomShadowImage(
+                  image: 'assets/images/home_view_images/test hottel image.jpg',
+                ),
+                CustomShadowImage(
+                  image: 'assets/images/home_view_images/test hottel image.jpg',
+                ),
+              ],
             ),
             const Positioned(
               top: 47.98,
@@ -61,6 +57,39 @@ class DetailsImageSection extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class CustomShadowImage extends StatelessWidget {
+  const CustomShadowImage({
+    super.key,
+    required this.image,
+  });
+  final String image;
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Image.asset(
+          image,
+          height: double.infinity,
+          width: double.infinity,
+          fit: BoxFit.cover,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              colors: [
+                Colors.black.withOpacity(0.4),
+                Colors.transparent,
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
