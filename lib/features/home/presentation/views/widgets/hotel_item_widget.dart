@@ -1,3 +1,4 @@
+import 'package:booking_app/core/data/models/hotel_model.dart';
 import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:booking_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -6,14 +7,10 @@ import 'package:get/get.dart';
 class HotelItemWidget extends StatelessWidget {
   const HotelItemWidget({
     super.key,
-    required this.title,
-    required this.city,
-    required this.price,
-    required this.rating,
-    required this.image,
+    required this.hotelModel,
   });
-  final String title, city, price, image;
-  final double rating;
+  final HotelModel hotelModel;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -33,9 +30,9 @@ class HotelItemWidget extends StatelessWidget {
           child: Stack(
             children: [
               Hero(
-                tag: 'ahmed',
-                child: Image.asset(
-                  image,
+                tag: hotelModel.images.first,
+                child: Image.network(
+                  hotelModel.images.first.thumbnail,
                   fit: BoxFit.cover,
                   height: double.infinity,
                   width: double.infinity,
@@ -63,17 +60,17 @@ class HotelItemWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      title,
+                      hotelModel.name,
                       style: Styles.itemsTitleStyle,
                     ),
                     Text(
-                      city,
+                      hotelModel.name,
                       style: Styles.itemsSubtitleStyle,
                     ),
                     Row(
                       children: [
                         Text(
-                          r'$' '$price/',
+                          r'$' '${hotelModel.price}/',
                           style: Styles.itemsTitleStyle.copyWith(
                               fontSize: 12.2, fontWeight: FontWeight.w500),
                         ),
@@ -86,7 +83,7 @@ class HotelItemWidget extends StatelessWidget {
                         ),
                         const Spacer(),
                         Text(
-                          '⭐ $rating',
+                          '⭐ ${hotelModel.overallRating}',
                           style: Styles.itemsTitleStyle.copyWith(
                             fontSize: 14,
                           ),

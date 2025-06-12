@@ -1,26 +1,24 @@
+import 'package:booking_app/core/data/models/hotel_model.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/hotel_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class NearHotelListBuilder extends StatelessWidget {
   const NearHotelListBuilder({
     super.key,
+    required this.items,
   });
-
+  final List<HotelModel> items;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       scrollDirection: Axis.horizontal,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
-        return const HotelItemWidget(
-          image: 'assets/images/home_view_images/test hottel image.jpg',
-          title: 'Paradise Resort',
-          city: 'Labuan Bajo',
-          price: '480',
-          rating: 4.8,
+        return HotelItemWidget(
+          hotelModel: items[index],
         );
       },
-      itemCount: 1,
+      itemCount: items.length,
     );
   }
 }

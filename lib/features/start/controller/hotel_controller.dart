@@ -20,6 +20,12 @@ class HotelController extends GetxController {
 
   HotelController({required this.hotelRepo});
 
+  @override
+  void onInit() {
+    super.onInit();
+    fetchNearbyHotels('cairo');
+  }
+
   Future<void> fetchNearbyHotels(String city) async {
     isLoadingNearby.value = true;
     var result = await hotelRepo.fetchNearHotels(city);

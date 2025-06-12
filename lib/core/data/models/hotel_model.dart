@@ -4,7 +4,7 @@ class HotelModel {
   final String name;
   final String? description;
   final String? link;
-  final double overallRating;
+  final double? overallRating;
   final String price;
   final List<ImageModel> images;
   final List<String> amenities;
