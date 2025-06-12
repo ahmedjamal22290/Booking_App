@@ -18,7 +18,7 @@ class GridServiceBuilder extends StatelessWidget {
       'Wi-Fi'
     ];
     return SizedBox(
-      height: service.length * 32,
+      height: service.length * 23,
       width: MediaQuery.sizeOf(context).width,
       child: GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
