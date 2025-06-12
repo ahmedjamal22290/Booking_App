@@ -29,6 +29,13 @@ abstract class Styles {
     fontWeight: FontWeight.w600,
     letterSpacing: 0,
   );
+  static const TextStyle buttonText2 = TextStyle(
+    fontSize: 15.26,
+    color: Colors.white,
+    fontFamily: 'sf_pro',
+    fontWeight: FontWeight.w500,
+    letterSpacing: 0,
+  );
   static const TextStyle itemsTitleStyle = TextStyle(
     fontSize: 16.2,
     color: Colors.white,
