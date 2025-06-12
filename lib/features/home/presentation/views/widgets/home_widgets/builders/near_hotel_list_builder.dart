@@ -20,7 +20,7 @@ class NearHotelListBuilder extends StatelessWidget {
           rating: 4.8,
         );
       },
-      itemCount: 10,
+      itemCount: 1,
     );
   }
 }

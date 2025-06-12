@@ -32,11 +32,14 @@ class HotelItemWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(21.66),
           child: Stack(
             children: [
-              Image.asset(
-                image,
-                fit: BoxFit.cover,
-                height: double.infinity,
-                width: double.infinity,
+              Hero(
+                tag: 'ahmed',
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.cover,
+                  height: double.infinity,
+                  width: double.infinity,
+                ),
               ),
               Container(
                 decoration: BoxDecoration(

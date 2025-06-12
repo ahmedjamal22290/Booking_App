@@ -28,8 +28,12 @@ class DetailsImageSection extends StatelessWidget {
             PageView(
               scrollDirection: Axis.horizontal,
               children: const [
-                CustomShadowImage(
-                  image: 'assets/images/home_view_images/test hottel image.jpg',
+                Hero(
+                  tag: 'ahmed',
+                  child: CustomShadowImage(
+                    image:
+                        'assets/images/home_view_images/test hottel image.jpg',
+                  ),
                 ),
                 CustomShadowImage(
                   image: 'assets/images/home_view_images/test hottel image.jpg',
