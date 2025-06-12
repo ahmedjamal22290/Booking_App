@@ -62,10 +62,12 @@ class HotelItemWidget extends StatelessWidget {
                     Text(
                       hotelModel.name,
                       style: Styles.itemsTitleStyle,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       hotelModel.name,
                       style: Styles.itemsSubtitleStyle,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Row(
                       children: [
