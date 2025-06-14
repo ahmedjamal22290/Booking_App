@@ -32,12 +32,15 @@ class HotelItemVertical extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: CachedNetworkImage(
-                imageUrl: hotel.images.first.thumbnail,
-                height: 80,
-                width: 80,
-                fit: BoxFit.cover,
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+              child: Hero(
+                tag: hotel.images.first.originalImage,
+                child: CachedNetworkImage(
+                  imageUrl: hotel.images.first.thumbnail,
+                  height: 80,
+                  width: 80,
+                  fit: BoxFit.cover,
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ),
             ),
             const SizedBox(width: 12),

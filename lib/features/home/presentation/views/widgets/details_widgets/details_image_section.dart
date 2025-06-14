@@ -32,7 +32,7 @@ class DetailsImageSection extends StatelessWidget {
               itemCount: hotelModel.images.length,
               itemBuilder: (context, index) {
                 return Hero(
-                  tag: hotelModel.images.first,
+                  tag: hotelModel.images.first.originalImage,
                   child: CustomShadowImage(
                       image: hotelModel.images[index].originalImage),
                 );

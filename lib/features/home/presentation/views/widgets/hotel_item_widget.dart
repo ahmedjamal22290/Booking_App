@@ -30,7 +30,7 @@ class HotelItemWidget extends StatelessWidget {
           child: Stack(
             children: [
               Hero(
-                tag: hotelModel.images.first,
+                tag: hotelModel.images.first.originalImage,
                 child: Image.network(
                   hotelModel.images.first.thumbnail,
                   fit: BoxFit.cover,
