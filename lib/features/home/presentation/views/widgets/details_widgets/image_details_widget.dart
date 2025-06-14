@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 class ImageDetailsWidget extends StatelessWidget {
   const ImageDetailsWidget({
     super.key,
+    required this.name,
+    required this.city,
   });
-
+  final String name, city;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,12 +17,12 @@ class ImageDetailsWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Paradise Resort',
+          Text(
+            name,
             style: Styles.detailsMainTitle,
           ),
           Text(
-            'Pantai Waecicu, Labuan Bajo, Kec. Komodo, Kabupaten Manggarai Barat, Nusa Tenggara Tim. 86554',
+            city,
             style: Styles.itemsSubtitleStyle
                 .copyWith(fontSize: 12, color: const Color(0xffC2C2C2)),
           ),

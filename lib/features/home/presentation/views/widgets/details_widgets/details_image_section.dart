@@ -1,3 +1,4 @@
+import 'package:booking_app/core/data/models/hotel_model.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/cusom_shadow_image.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/details_custom_app_bar.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/image_details_widget.dart';
@@ -7,8 +8,9 @@ import 'package:flutter/material.dart';
 class DetailsImageSection extends StatelessWidget {
   const DetailsImageSection({
     super.key,
+    required this.hotelModel,
   });
-
+  final HotelModel hotelModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,23 +27,13 @@ class DetailsImageSection extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            PageView(
+            PageView.builder(
               scrollDirection: Axis.horizontal,
-              children: const [
-                Hero(
-                  tag: 'ahmed',
-                  child: CustomShadowImage(
-                    image:
-                        'assets/images/home_view_images/test hottel image.jpg',
-                  ),
-                ),
-                CustomShadowImage(
-                  image: 'assets/images/home_view_images/test hottel image.jpg',
-                ),
-                CustomShadowImage(
-                  image: 'assets/images/home_view_images/test hottel image.jpg',
-                ),
-              ],
+              itemCount: hotelModel.images.length,
+              itemBuilder: (context, index) {
+                return CustomShadowImage(
+                    image: hotelModel.images[index].thumbnail);
+              },
             ),
             const Positioned(
               top: 47.98,
@@ -49,10 +41,13 @@ class DetailsImageSection extends StatelessWidget {
               left: 13.52,
               child: DetailsCustomAppBar(),
             ),
-            const Positioned(
+            Positioned(
               bottom: 16.31,
               left: 13.52,
-              child: ImageDetailsWidget(),
+              child: ImageDetailsWidget(
+                name: hotelModel.name,
+                city: hotelModel.name,
+              ),
             ),
             const Positioned(
               bottom: 16.31,

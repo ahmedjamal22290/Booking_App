@@ -15,7 +15,7 @@ class HotelItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(AppRouts.detailsView);
+        Get.toNamed(AppRouts.detailsView, arguments: hotelModel);
       },
       child: Container(
         margin: const EdgeInsets.only(right: 11.73),

@@ -10,7 +10,7 @@ class CustomShadowImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
+        Image.network(
           image,
           height: double.infinity,
           width: double.infinity,

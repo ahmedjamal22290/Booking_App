@@ -1,3 +1,4 @@
+import 'package:booking_app/core/data/models/hotel_model.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/about_section.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/details_button.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/details_image_section.dart';
@@ -5,17 +6,20 @@ import 'package:booking_app/features/home/presentation/views/widgets/details_wid
 import 'package:flutter/material.dart';
 
 class DetailsViewBody extends StatelessWidget {
-  const DetailsViewBody({super.key});
+  const DetailsViewBody({super.key, required this.hotelModel});
+  final HotelModel hotelModel;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Expanded(
+        Expanded(
           child: CustomScrollView(
             physics: BouncingScrollPhysics(),
             slivers: [
               SliverToBoxAdapter(
-                child: DetailsImageSection(),
+                child: DetailsImageSection(
+                  hotelModel: hotelModel,
+                ),
               ),
               SliverToBoxAdapter(
                 child: SizedBox(
