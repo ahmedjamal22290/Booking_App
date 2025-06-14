@@ -1,7 +1,7 @@
 import 'package:booking_app/core/utils/styles.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/builders/near_hotel_list_builder.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/view_all_button.dart';
-import 'package:booking_app/features/start/controller/hotel_controller.dart';
+import 'package:booking_app/features/home/controllers/hotel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

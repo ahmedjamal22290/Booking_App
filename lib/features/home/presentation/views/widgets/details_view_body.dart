@@ -14,23 +14,29 @@ class DetailsViewBody extends StatelessWidget {
       children: [
         Expanded(
           child: CustomScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             slivers: [
               SliverToBoxAdapter(
                 child: DetailsImageSection(
                   hotelModel: hotelModel,
                 ),
               ),
-              SliverToBoxAdapter(
+              const SliverToBoxAdapter(
                 child: SizedBox(
                   height: 26.23,
                 ),
               ),
               SliverToBoxAdapter(
-                child: AboutSection(),
+                child: hotelModel.description != null
+                    ? AboutSection(
+                        description: hotelModel.description,
+                      )
+                    : SizedBox(),
               ),
               SliverToBoxAdapter(
-                child: ServiceSection(),
+                child: ServiceSection(
+                  service: hotelModel.amenities,
+                ),
               ),
             ],
           ),
@@ -46,7 +52,10 @@ class DetailsViewBody extends StatelessWidget {
               spreadRadius: 2,
             )
           ]),
-          child: const DetailsButton(),
+          child: DetailsButton(
+            link: hotelModel.link ?? 'none',
+            price: hotelModel.price,
+          ),
         )
       ],
     );

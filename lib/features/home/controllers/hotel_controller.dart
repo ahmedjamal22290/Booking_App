@@ -23,7 +23,7 @@ class HotelController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchNearbyHotels('cairo');
+    fetchNearbyHotels('paris');
   }
 
   Future<void> fetchNearbyHotels(String city) async {

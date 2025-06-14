@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class AboutSection extends StatelessWidget {
   const AboutSection({
     super.key,
+    this.description,
   });
-
+  final String? description;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,7 +22,7 @@ class AboutSection extends StatelessWidget {
             ),
           ),
           Text(
-            'Welcome to resort paradise we ensure the best service during your stay in bali with an emphasis on customer comfort. Enjoy Balinese specialties, dance and music every Saturday for free at competitive prices. You can enjoy all the facilities at our resort',
+            description ?? '',
             style: Styles.description1.copyWith(
               color: const Color(0xff787878),
             ),

@@ -23,7 +23,7 @@ class HotelModel {
       description: json['description'],
       link: json['link'],
       overallRating: (json["overall_rating"]).toString(),
-      price: json["rate_per_night"]["lowest"],
+      price: json["rate_per_night"]?["lowest"] ?? "--",
       images: (json['images'] as List)
           .map((img) => ImageModel.fromJson(img))
           .toList(),

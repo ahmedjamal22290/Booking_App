@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 class DetailsButton extends StatelessWidget {
   const DetailsButton({
     super.key,
+    required this.price,
+    required this.link,
   });
-
+  final String price, link;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,7 +28,7 @@ class DetailsButton extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    r'$' '480',
+                    price,
                     style: Styles.itemsTitleStyle.copyWith(
                       fontSize: 19,
                       fontWeight: FontWeight.w500,
@@ -45,17 +47,22 @@ class DetailsButton extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          Container(
-            height: 40.63,
-            width: 111.72,
-            decoration: BoxDecoration(
-              color: Constants.buttonsMainColor,
-              borderRadius: BorderRadius.circular(14),
-            ),
-            child: const Center(
-              child: Text(
-                'Reverse Now',
-                style: Styles.buttonText2,
+          GestureDetector(
+            onTap: () {
+              //open link
+            },
+            child: Container(
+              height: 40.63,
+              width: 111.72,
+              decoration: BoxDecoration(
+                color: Constants.buttonsMainColor,
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: const Center(
+                child: Text(
+                  'Reverse Now',
+                  style: Styles.buttonText2,
+                ),
               ),
             ),
           )

@@ -4,19 +4,11 @@ import 'package:flutter/material.dart';
 class GridServiceBuilder extends StatelessWidget {
   const GridServiceBuilder({
     super.key,
+    required this.service,
   });
-
+  final List<String> service;
   @override
   Widget build(BuildContext context) {
-    final service = [
-      'Swimming pool',
-      '4 Rooms',
-      'Parking area',
-      'Bars',
-      'Fitness center',
-      'Play ground',
-      'Wi-Fi'
-    ];
     return SizedBox(
       height: service.length * 23,
       width: MediaQuery.sizeOf(context).width,

@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 class ServiceSection extends StatelessWidget {
   const ServiceSection({
     super.key,
+    required this.service,
   });
-
+  final List<String> service;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,7 +23,9 @@ class ServiceSection extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 11),
-          const GridServiceBuilder()
+          GridServiceBuilder(
+            service: service,
+          )
         ],
       ),
     );
