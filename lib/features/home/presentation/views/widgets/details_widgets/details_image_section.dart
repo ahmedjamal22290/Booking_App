@@ -31,8 +31,11 @@ class DetailsImageSection extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: hotelModel.images.length,
               itemBuilder: (context, index) {
-                return CustomShadowImage(
-                    image: hotelModel.images[index].thumbnail);
+                return Hero(
+                  tag: hotelModel.images.first,
+                  child: CustomShadowImage(
+                      image: hotelModel.images[index].originalImage),
+                );
               },
             ),
             const Positioned(

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomShadowImage extends StatelessWidget {
@@ -10,11 +11,14 @@ class CustomShadowImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.network(
-          image,
+        CachedNetworkImage(
+          imageUrl: image,
           height: double.infinity,
           width: double.infinity,
           fit: BoxFit.cover,
+          errorWidget: (context, url, error) {
+            return const Icon(Icons.error);
+          },
         ),
         Container(
           decoration: BoxDecoration(

@@ -31,7 +31,7 @@ class DetailsViewBody extends StatelessWidget {
                     ? AboutSection(
                         description: hotelModel.description,
                       )
-                    : SizedBox(),
+                    : const SizedBox(),
               ),
               SliverToBoxAdapter(
                 child: ServiceSection(
