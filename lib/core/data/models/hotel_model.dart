@@ -4,7 +4,7 @@ class HotelModel {
   final String name;
   final String? description;
   final String? link;
-  final double? overallRating;
+  final String? overallRating;
   final String price;
   final List<ImageModel> images;
   final List<String> amenities;
@@ -22,12 +22,12 @@ class HotelModel {
       name: json['name'],
       description: json['description'],
       link: json['link'],
-      overallRating: json["overall_rating"],
+      overallRating: (json["overall_rating"]).toString(),
       price: json["rate_per_night"]["lowest"],
       images: (json['images'] as List)
           .map((img) => ImageModel.fromJson(img))
           .toList(),
-      amenities: List<String>.from(json['amenities']),
+      amenities: List<String>.from(json['amenities'] ?? []),
     );
   }
 }
