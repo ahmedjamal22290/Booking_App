@@ -1,3 +1,4 @@
+import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:booking_app/core/utils/styles.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/builders/near_hotel_list_builder.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/view_all_button.dart';
@@ -34,7 +35,12 @@ class NearHotelSection extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              const ViewAllButton(),
+              ViewAllButton(
+                onTap: () {
+                  Get.toNamed(AppRouts.viewAllView,
+                      arguments: controller.nearHotels);
+                },
+              ),
               const SizedBox(
                 width: 12.31,
               )

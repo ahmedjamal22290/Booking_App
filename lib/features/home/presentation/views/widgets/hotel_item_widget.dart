@@ -85,7 +85,7 @@ class HotelItemWidget extends StatelessWidget {
                         ),
                         const Spacer(),
                         Text(
-                          '⭐ ${hotelModel.overallRating}',
+                          '⭐ ${hotelModel.overallRating?.substring(0, 3) ?? ''}',
                           style: Styles.itemsTitleStyle.copyWith(
                             fontSize: 14,
                           ),
