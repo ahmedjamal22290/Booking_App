@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:booking_app/features/home/controllers/search_controller.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/sections/explore_hotels_section.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/sections/near_hotel_section.dart';
@@ -30,8 +32,8 @@ class CustomMainContainer extends StatelessWidget {
                 topLeft: Radius.circular(18.66),
                 topRight: Radius.circular(18.66)),
           ),
-          child: const Padding(
-            padding: EdgeInsets.only(left: 17.52, top: 17.27),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 17.52, top: 17.27),
             child: ContentList(),
           ),
         ),
@@ -40,23 +42,25 @@ class CustomMainContainer extends StatelessWidget {
   }
 }
 
-class ContentList extends GetView<SearchingController> {
+class ContentList extends StatelessWidget {
   const ContentList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    if (controller.isActive) {
-      return const Column(
-        children: [],
-      );
-    } else {
-      return const Column(
-        children: [
-          NearHotelSection(),
-          SizedBox(height: 17.27),
-          ExploreHotelsSection()
-        ],
-      );
-    }
+    return GetBuilder<SearchingController>(
+      builder: (controller) {
+        if (controller.isActive) {
+          return const SizedBox.shrink();
+        } else {
+          return const Column(
+            children: [
+              NearHotelSection(),
+              SizedBox(height: 17.27),
+              ExploreHotelsSection()
+            ],
+          );
+        }
+      },
+    );
   }
 }

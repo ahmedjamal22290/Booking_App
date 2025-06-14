@@ -10,9 +10,9 @@ class HomeBindings extends Bindings {
   @override
   void dependencies() {
     Get.put(SearchingController());
-    Get.lazyPut<HotelRepo>(
-      () => HotelRepoImpl(apiService: ApiService(dio: Dio())),
+    Get.put<HotelRepo>(
+      HotelRepoImpl(apiService: ApiService(dio: Dio())),
     );
-    Get.lazyPut(() => HotelController(hotelRepo: Get.find()));
+    Get.put(HotelController(hotelRepo: Get.find()));
   }
 }
