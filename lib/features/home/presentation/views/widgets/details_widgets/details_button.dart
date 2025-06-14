@@ -1,6 +1,7 @@
 import 'package:booking_app/core/utils/constants.dart';
 import 'package:booking_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailsButton extends StatelessWidget {
   const DetailsButton({
@@ -48,8 +49,12 @@ class DetailsButton extends StatelessWidget {
           ),
           const Spacer(),
           GestureDetector(
-            onTap: () {
-              //open link
+            onTap: () async {
+              if (await canLaunchUrl(Uri.parse(link))) {
+                await launchUrl(Uri.parse(link));
+              } else {
+                throw 'Could not launch $link';
+              }
             },
             child: Container(
               height: 40.63,
@@ -60,7 +65,7 @@ class DetailsButton extends StatelessWidget {
               ),
               child: const Center(
                 child: Text(
-                  'Reverse Now',
+                  'Reserve Now',
                   style: Styles.buttonText2,
                 ),
               ),
