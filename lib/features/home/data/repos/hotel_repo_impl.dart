@@ -33,7 +33,6 @@ class HotelRepoImpl extends HotelRepo {
 
   @override
   Future<Either<Failures, List<HotelModel>>> searchHotels() {
-    // TODO: implement searchHotels
     throw UnimplementedError();
   }
 }
