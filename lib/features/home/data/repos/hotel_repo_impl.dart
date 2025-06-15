@@ -27,7 +27,18 @@ class HotelRepoImpl extends HotelRepo {
   }
 
   @override
-  Future<Either<Failures, List<HotelModel>>> exploreHotels() {
-    throw UnimplementedError();
+  Future<Either<Failures, List<HotelModel>>> exploreHotels() async {
+    try {
+      Map<String, dynamic> jsonData = await apiService.get(city: 'europe');
+      List<HotelModel> hotels = [];
+      for (var element in jsonData['properties']) {
+        hotels.add(HotelModel.fromJson(element));
+      }
+      return Right(hotels);
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioException(e));
+    } on Exception catch (e) {
+      return Left(ServerFailure(e.toString()));
+    }
   }
 }

@@ -39,4 +39,18 @@ class HotelController extends GetxController {
     );
     isLoadingNearby.value = false;
   }
+
+  Future<void> fetchExploreHotelsList() async {
+    isLoadingExplore.value = true;
+    var result = await hotelRepo.exploreHotels();
+    result.fold(
+      (failure) {
+        exploreErrorMessage.value = failure.errorMessage;
+      },
+      (list) {
+        exploreHotels.assignAll(list);
+      },
+    );
+    isLoadingExplore.value = false;
+  }
 }
