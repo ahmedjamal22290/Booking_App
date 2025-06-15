@@ -1,5 +1,4 @@
 import 'package:booking_app/core/data/models/hotel_model.dart';
-import 'package:booking_app/features/home/controllers/hotel_controller.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/explore_item.dart';
 import 'package:flutter/material.dart';
 

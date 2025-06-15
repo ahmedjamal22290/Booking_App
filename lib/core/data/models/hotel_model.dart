@@ -9,6 +9,7 @@ class HotelModel {
   final List<ImageModel> images;
   final List<String> amenities;
   String? city;
+  bool isFav = false;
 
   HotelModel(
       {this.city,

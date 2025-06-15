@@ -54,11 +54,17 @@ class _DetailsImageSectionState extends State<DetailsImageSection> {
                 );
               },
             ),
-            const Positioned(
+            Positioned(
               top: 47.98,
               right: 13.52,
               left: 13.52,
-              child: DetailsCustomAppBar(),
+              child: DetailsCustomAppBar(
+                isF: widget.hotelModel.isFav,
+                onPressed: () {
+                  widget.hotelModel.isFav = !widget.hotelModel.isFav;
+                  setState(() {});
+                },
+              ),
             ),
             Positioned(
               bottom: 16.31,

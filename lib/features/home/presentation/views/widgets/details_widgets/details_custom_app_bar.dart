@@ -4,8 +4,11 @@ import 'package:get/get.dart';
 class DetailsCustomAppBar extends StatelessWidget {
   const DetailsCustomAppBar({
     super.key,
+    required this.onPressed,
+    required this.isF,
   });
-
+  final void Function() onPressed;
+  final bool isF;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -36,10 +39,10 @@ class DetailsCustomAppBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(9),
           ),
           child: IconButton(
-            onPressed: () {},
-            icon: const Icon(
+            onPressed: onPressed,
+            icon: Icon(
               Icons.favorite,
-              color: Colors.red,
+              color: isF ? Colors.red : Colors.grey,
               size: 23,
             ),
           ),
