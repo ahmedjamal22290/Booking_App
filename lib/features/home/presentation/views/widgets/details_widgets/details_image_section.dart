@@ -5,12 +5,20 @@ import 'package:booking_app/features/home/presentation/views/widgets/details_wid
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/next_image_widget.dart';
 import 'package:flutter/material.dart';
 
-class DetailsImageSection extends StatelessWidget {
+class DetailsImageSection extends StatefulWidget {
   const DetailsImageSection({
     super.key,
     required this.hotelModel,
   });
   final HotelModel hotelModel;
+
+  @override
+  State<DetailsImageSection> createState() => _DetailsImageSectionState();
+}
+
+class _DetailsImageSectionState extends State<DetailsImageSection> {
+  int? nextImageindex;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,12 +37,20 @@ class DetailsImageSection extends StatelessWidget {
           children: [
             PageView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: hotelModel.images.length,
+              itemCount: widget.hotelModel.images.length,
+              onPageChanged: (value) {
+                if (widget.hotelModel.images.length - 1 <= value) {
+                  nextImageindex = value;
+                } else {
+                  nextImageindex = value + 1;
+                }
+                setState(() {});
+              },
               itemBuilder: (context, index) {
                 return Hero(
-                  tag: hotelModel.images.first.originalImage,
+                  tag: widget.hotelModel.images.first.originalImage,
                   child: CustomShadowImage(
-                      image: hotelModel.images[index].originalImage),
+                      image: widget.hotelModel.images[index].originalImage),
                 );
               },
             ),
@@ -48,14 +64,16 @@ class DetailsImageSection extends StatelessWidget {
               bottom: 16.31,
               left: 13.52,
               child: ImageDetailsWidget(
-                name: hotelModel.name,
-                city: hotelModel.name,
+                name: widget.hotelModel.name,
+                city: widget.hotelModel.name,
               ),
             ),
-            const Positioned(
+            Positioned(
               bottom: 16.31,
               right: 13.52,
-              child: NextImageWIdget(),
+              child: NextImageWIdget(
+                image: widget.hotelModel.images[nextImageindex ?? 0].thumbnail,
+              ),
             ),
           ],
         ),

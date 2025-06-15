@@ -1,10 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class NextImageWIdget extends StatelessWidget {
   const NextImageWIdget({
     super.key,
+    required this.image,
   });
-
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,8 +23,8 @@ class NextImageWIdget extends StatelessWidget {
           )),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.87),
-        child: Image.asset(
-          'assets/images/home_view_images/test hottel image.jpg',
+        child: CachedNetworkImage(
+          imageUrl: image,
           fit: BoxFit.cover,
         ),
       ),
