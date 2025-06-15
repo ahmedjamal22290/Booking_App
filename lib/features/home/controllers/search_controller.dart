@@ -53,6 +53,7 @@ class SearchingController extends GetxController
   }
 
   void search() async {
+    if (!isActive) return;
     isLoading.value = true;
     var result =
         await SearchSectionRepoImpl().searchByCity(textController.text);
