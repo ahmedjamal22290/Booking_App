@@ -14,14 +14,18 @@ class WatchlistViewBody extends StatelessWidget {
           child: Text('watchlist'),
         );
       }
-      return ListView.separated(
-        itemCount: controller.watchList.length,
-        separatorBuilder: (context, index) {
-          return const SizedBox(height: 5);
-        },
-        itemBuilder: (context, index) {
-          return HotelItemVertical(hotel: controller.watchList[index]);
-        },
+      return Padding(
+        padding: const EdgeInsets.only(top: 15.0),
+        child: ListView.separated(
+          physics: const BouncingScrollPhysics(),
+          itemCount: controller.watchList.length,
+          separatorBuilder: (context, index) {
+            return const SizedBox(height: 5);
+          },
+          itemBuilder: (context, index) {
+            return HotelItemVertical(hotel: controller.watchList[index]);
+          },
+        ),
       );
     });
   }
