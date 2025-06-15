@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:booking_app/features/home/controllers/search_controller.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/sections/explore_hotels_section.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/sections/near_hotel_section.dart';
@@ -33,8 +31,8 @@ class CustomMainContainer extends StatelessWidget {
                 topLeft: Radius.circular(18.66),
                 topRight: Radius.circular(18.66)),
           ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 17.52, top: 17.27),
+          child: const Padding(
+            padding: EdgeInsets.only(left: 17.52, top: 17.27),
             child: ContentList(),
           ),
         ),

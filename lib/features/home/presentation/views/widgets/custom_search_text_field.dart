@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:booking_app/features/home/controllers/search_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,12 +15,10 @@ class CustomSearchTextField extends StatelessWidget {
         child: TextFormField(
           controller: searchController.textController,
           onTap: () {
-            log('when the UI will change ');
             searchController.searchTaped();
           },
           onFieldSubmitted: (newValue) {
             searchController.search();
-            log('search method from text field');
           },
           decoration: InputDecoration(
             suffixIcon: AnimatedSwitcher(

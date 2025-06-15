@@ -1,5 +1,3 @@
-import 'package:booking_app/core/data/models/hotel_model.dart';
-import 'package:booking_app/core/data/models/image_model.dart';
 import 'package:booking_app/features/home/controllers/search_controller.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/view_all_widgets/hotel_item_vertical.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +10,13 @@ class SearchSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetX<SearchingController>(builder: (controller) {
       if (controller.isLoading.value) {
-        return Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       }
       if (controller.error.isNotEmpty) {
         return Text(controller.error.value);
       }
       if (controller.hotels.isEmpty) {
-        return Center(child: Text('start Searching'));
+        return const Center(child: Text('start Searching'));
       }
       return ListView.separated(
           itemCount: controller.hotels.length,
