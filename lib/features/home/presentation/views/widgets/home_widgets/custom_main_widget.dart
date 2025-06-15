@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:booking_app/features/home/controllers/search_controller.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/sections/explore_hotels_section.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/home_widgets/sections/near_hotel_section.dart';
+import 'package:booking_app/features/search/presentation/views/search_section.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -50,7 +51,7 @@ class ContentList extends StatelessWidget {
     return GetBuilder<SearchingController>(
       builder: (controller) {
         if (controller.isActive) {
-          return const SizedBox.shrink();
+          return const SearchSection();
         } else {
           return const Column(
             children: [

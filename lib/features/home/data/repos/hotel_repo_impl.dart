@@ -30,9 +30,4 @@ class HotelRepoImpl extends HotelRepo {
   Future<Either<Failures, List<HotelModel>>> exploreHotels() {
     throw UnimplementedError();
   }
-
-  @override
-  Future<Either<Failures, List<HotelModel>>> searchHotels() {
-    throw UnimplementedError();
-  }
 }
