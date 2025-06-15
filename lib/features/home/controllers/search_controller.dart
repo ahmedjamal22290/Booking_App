@@ -1,3 +1,5 @@
+import 'package:booking_app/core/data/models/hotel_model.dart';
+import 'package:booking_app/features/search/data/repos/search_section_repo_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +11,9 @@ class SearchingController extends GetxController
   late final Animation<double> mainContanierAnimation;
   late final Animation<double> textOpacityAnimation;
   late final Animation<double> blurAnimation;
+  var hotels = <HotelModel>[].obs;
+  var isLoading = false.obs;
+  var error = ''.obs;
   bool isActive = false;
   @override
   void onInit() {
@@ -43,6 +48,18 @@ class SearchingController extends GetxController
     animationController.reverse();
     isActive = false;
     update();
+  }
+
+  void search() async {
+    isLoading.value = true;
+    var result =
+        await SearchSectionRepoImpl().searchByCity(textController.text);
+    result.fold((failure) {
+      error.value = failure.errorMessage;
+    }, (list) {
+      hotels.assignAll(list);
+    });
+    isLoading.value = false;
   }
 
   @override
