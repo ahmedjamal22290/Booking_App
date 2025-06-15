@@ -19,8 +19,9 @@ class CustomSearchTextField extends StatelessWidget {
             log('when the UI will change ');
             searchController.searchTaped();
           },
-          onSaved: (newValue) {
+          onFieldSubmitted: (newValue) {
             searchController.search();
+            log('search method from text field');
           },
           decoration: InputDecoration(
             suffixIcon: AnimatedSwitcher(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:booking_app/core/data/models/hotel_model.dart';
 import 'package:booking_app/features/search/data/repos/search_section_repo_impl.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +56,7 @@ class SearchingController extends GetxController
     isLoading.value = true;
     var result =
         await SearchSectionRepoImpl().searchByCity(textController.text);
+    log('response come ${textController.text}');
     result.fold((failure) {
       error.value = failure.errorMessage;
     }, (list) {

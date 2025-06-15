@@ -9,7 +9,7 @@ class ApiService {
   Future<Map<String, dynamic>> get(
       {required String city, String? checkIn, String? checkOut}) async {
     String requestUrl = "$_baseUrl$_apiKey"
-        "&q=$city&check_in_date=2025-06-14&check_out_date=2025-06-20";
+        "&q=$city&check_in_date=2025-06-15&check_out_date=2025-06-20";
     Response response = await dio.get(requestUrl);
     Map<String, dynamic> json = response.data;
     return json;

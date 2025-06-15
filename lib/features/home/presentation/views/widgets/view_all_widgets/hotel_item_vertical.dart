@@ -55,7 +55,7 @@ class HotelItemVertical extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    hotel.name,
+                    hotel.city ?? hotel.name,
                     style:
                         Styles.itemsSubtitleStyle.copyWith(color: Colors.black),
                     overflow: TextOverflow.ellipsis,
@@ -87,7 +87,10 @@ class HotelItemVertical extends StatelessWidget {
               children: [
                 const Icon(Icons.star, color: Colors.amber, size: 18),
                 Text(
-                  hotel.overallRating?.substring(0, 3) ?? 'N/A',
+                  hotel.overallRating != null &&
+                          hotel.overallRating!.length >= 3
+                      ? hotel.overallRating!.substring(0, 3)
+                      : hotel.overallRating ?? 'N/A',
                   style: Styles.itemsTitleStyle
                       .copyWith(fontSize: 14, color: Colors.black),
                 ),

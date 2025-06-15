@@ -8,9 +8,11 @@ class HotelModel {
   final String price;
   final List<ImageModel> images;
   final List<String> amenities;
+  String? city;
 
   HotelModel(
-      {required this.name,
+      {this.city,
+      required this.name,
       required this.description,
       required this.link,
       required this.overallRating,
@@ -20,6 +22,7 @@ class HotelModel {
   factory HotelModel.fromJson(Map<String, dynamic> json) {
     return HotelModel(
       name: json['name'],
+      city: json['name'],
       description: json['description'],
       link: json['link'],
       overallRating: (json["overall_rating"]).toString(),
