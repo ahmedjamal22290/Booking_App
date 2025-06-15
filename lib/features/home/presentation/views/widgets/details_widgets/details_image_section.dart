@@ -3,7 +3,9 @@ import 'package:booking_app/features/home/presentation/views/widgets/details_wid
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/details_custom_app_bar.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/image_details_widget.dart';
 import 'package:booking_app/features/home/presentation/views/widgets/details_widgets/next_image_widget.dart';
+import 'package:booking_app/features/watchlist/controller/watchlist_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DetailsImageSection extends StatefulWidget {
   const DetailsImageSection({
@@ -18,7 +20,8 @@ class DetailsImageSection extends StatefulWidget {
 
 class _DetailsImageSectionState extends State<DetailsImageSection> {
   int? nextImageindex;
-
+  final WatchlistController watchlistController =
+      Get.find<WatchlistController>();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -62,6 +65,11 @@ class _DetailsImageSectionState extends State<DetailsImageSection> {
                 isF: widget.hotelModel.isFav,
                 onPressed: () {
                   widget.hotelModel.isFav = !widget.hotelModel.isFav;
+                  if (widget.hotelModel.isFav) {
+                    watchlistController.add(widget.hotelModel);
+                  } else {
+                    watchlistController.delete(widget.hotelModel);
+                  }
                   setState(() {});
                 },
               ),
