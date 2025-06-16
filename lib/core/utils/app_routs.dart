@@ -1,4 +1,5 @@
 import 'package:booking_app/features/auth/presentation/views/login_view.dart';
+import 'package:booking_app/features/auth/presentation/views/register_view.dart';
 import 'package:booking_app/features/home/bindings/home_bindings.dart';
 import 'package:booking_app/features/home/presentation/views/details_view.dart';
 import 'package:booking_app/features/home/presentation/views/home_view.dart';
@@ -47,7 +48,7 @@ abstract class AppRouts {
     ),
     GetPage(
       name: registerView,
-      page: () => const LoginView(),
+      page: () => const RegisterView(),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOutCirc,
       transitionDuration: const Duration(milliseconds: 400),
