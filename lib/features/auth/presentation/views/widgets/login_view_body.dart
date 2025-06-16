@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:booking_app/core/utils/constants.dart';
 import 'package:booking_app/core/utils/styles.dart';
 import 'package:booking_app/features/auth/controller/auth_controller.dart';
@@ -54,7 +55,7 @@ class LoginViewBody extends StatelessWidget {
                 }
               },
               child: Container(
-                width: MediaQuery.sizeOf(context).width / 2,
+                width: MediaQuery.sizeOf(context).width / 1.5,
                 height: 50,
                 decoration: BoxDecoration(
                     color: Constants.buttonsMainColor,
@@ -66,6 +67,31 @@ class LoginViewBody extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            SizedBox(height: 9),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Don't have an account? ",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(AppRouts.registerView);
+                  },
+                  child: Text(
+                    'Register Now',
+                    style: TextStyle(
+                      color: Constants.buttonsMainColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
             )
           ],
         ),

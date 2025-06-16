@@ -13,6 +13,7 @@ abstract class AppRouts {
   static const detailsView = '/detailsView';
   static const viewAllView = '/viewAllView';
   static const loginView = '/loginView';
+  static const registerView = '/registerView';
   static List<GetPage<dynamic>> routs = [
     GetPage(
       name: startView,
@@ -41,6 +42,13 @@ abstract class AppRouts {
       name: loginView,
       page: () => const LoginView(),
       transition: Transition.fadeIn,
+      curve: Curves.easeInOutCirc,
+      transitionDuration: const Duration(milliseconds: 400),
+    ),
+    GetPage(
+      name: registerView,
+      page: () => const LoginView(),
+      transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOutCirc,
       transitionDuration: const Duration(milliseconds: 400),
     ),
