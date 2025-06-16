@@ -15,30 +15,32 @@ class LoginViewBody extends StatelessWidget {
         right: 14,
         left: 14,
       ),
-      child: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text(
-              'Login now',
-              style: Styles.headlines1.copyWith(
-                color: const Color(0xFF1C4BC3),
+      child: Form(
+        key: ,
+        child: Column(
+          children: [
+            Center(
+              child: Text(
+                'Login now',
+                style: Styles.headlines1.copyWith(
+                  color: const Color(0xFF1C4BC3),
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 120,
-          ),
-          EmailTextField(
-            textEditingController: ,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          PasswordTextField(
-            textEditingController: ,
-          ),
-        ],
+            const SizedBox(
+              height: 120,
+            ),
+            EmailTextField(
+              textEditingController: ,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            PasswordTextField(
+              textEditingController: ,
+            ),
+          ],
+        ),
       ),
     );
   }
