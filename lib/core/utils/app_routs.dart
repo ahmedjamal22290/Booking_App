@@ -1,3 +1,4 @@
+import 'package:booking_app/features/auth/presentation/views/login_view.dart';
 import 'package:booking_app/features/home/bindings/home_bindings.dart';
 import 'package:booking_app/features/home/presentation/views/details_view.dart';
 import 'package:booking_app/features/home/presentation/views/home_view.dart';
@@ -11,6 +12,7 @@ abstract class AppRouts {
   static const homeView = '/homeView';
   static const detailsView = '/detailsView';
   static const viewAllView = '/viewAllView';
+  static const loginView = '/loginView';
   static List<GetPage<dynamic>> routs = [
     GetPage(
       name: startView,
@@ -31,6 +33,13 @@ abstract class AppRouts {
     GetPage(
       name: viewAllView,
       page: () => const ViewAllView(),
+      transition: Transition.fadeIn,
+      curve: Curves.easeInOutCirc,
+      transitionDuration: const Duration(milliseconds: 400),
+    ),
+    GetPage(
+      name: loginView,
+      page: () => const LoginView(),
       transition: Transition.fadeIn,
       curve: Curves.easeInOutCirc,
       transitionDuration: const Duration(milliseconds: 400),

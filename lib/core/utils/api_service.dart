@@ -8,8 +8,15 @@ class ApiService {
   ApiService({required this.dio});
   Future<Map<String, dynamic>> get(
       {required String city, String? checkIn, String? checkOut}) async {
+    if (checkIn == null) {
+      checkIn =
+          "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day.toString()}";
+      DateTime dateAfterWeek = DateTime.now().add(const Duration(days: 7));
+      checkOut =
+          "${dateAfterWeek.year}-${dateAfterWeek.month}-${dateAfterWeek.day.toString()}";
+    }
     String requestUrl = "$_baseUrl$_apiKey"
-        "&q=$city&check_in_date=2025-06-15&check_out_date=2025-06-20";
+        "&q=$city&check_in_date=$checkIn&check_out_date=$checkOut";
     Response response = await dio.get(requestUrl);
     Map<String, dynamic> json = response.data;
     return json;

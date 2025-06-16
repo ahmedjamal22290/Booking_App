@@ -19,7 +19,7 @@ class StartController extends GetxController {
           curve: Curves.easeInOutCirc);
       update();
     } else {
-      Get.offNamed(AppRouts.homeView);
+      Get.offNamed(AppRouts.loginView);
     }
   }
 
