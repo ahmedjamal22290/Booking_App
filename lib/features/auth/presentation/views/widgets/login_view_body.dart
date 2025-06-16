@@ -5,6 +5,7 @@ import 'package:booking_app/core/utils/constants.dart';
 import 'package:booking_app/core/utils/styles.dart';
 import 'package:booking_app/features/auth/controller/auth_controller.dart';
 import 'package:booking_app/features/auth/presentation/views/widgets/email_textfield.dart';
+import 'package:booking_app/features/auth/presentation/views/widgets/navigator_text.dart';
 import 'package:booking_app/features/auth/presentation/views/widgets/password_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -68,31 +69,8 @@ class LoginViewBody extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 9),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Don't have an account? ",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Get.toNamed(AppRouts.registerView);
-                  },
-                  child: Text(
-                    'Register Now',
-                    style: TextStyle(
-                      color: Constants.buttonsMainColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            )
+            const SizedBox(height: 9),
+            const NavigatorText()
           ],
         ),
       ),
