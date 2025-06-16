@@ -1,5 +1,7 @@
 import 'package:booking_app/core/utils/constants.dart';
 import 'package:booking_app/core/utils/styles.dart';
+import 'package:booking_app/features/auth/presentation/views/widgets/email_textfield.dart';
+import 'package:booking_app/features/auth/presentation/views/widgets/password_textfield.dart';
 import 'package:flutter/material.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -27,51 +29,14 @@ class LoginViewBody extends StatelessWidget {
           const SizedBox(
             height: 120,
           ),
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              labelText: "Email",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(6),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-                borderSide: const BorderSide(color: Constants.buttonsMainColor),
-              ),
-            ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return "Please enter your email";
-              }
-
-              return null;
-            },
+          EmailTextField(
+            textEditingController: ,
           ),
           const SizedBox(
             height: 20,
           ),
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              labelText: "Password",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(6),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-                borderSide: const BorderSide(color: Constants.buttonsMainColor),
-              ),
-            ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return "Please enter your password";
-              }
-              if (value.length < 8) {
-                return "Password must be at least 8 characters";
-              }
-
-              return null;
-            },
+          PasswordTextField(
+            textEditingController: ,
           ),
         ],
       ),
