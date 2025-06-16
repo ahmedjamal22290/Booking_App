@@ -1,12 +1,17 @@
+import 'dart:developer';
+
 import 'package:booking_app/core/utils/constants.dart';
 import 'package:booking_app/core/utils/styles.dart';
+import 'package:booking_app/features/auth/controller/auth_controller.dart';
 import 'package:booking_app/features/auth/presentation/views/widgets/email_textfield.dart';
 import 'package:booking_app/features/auth/presentation/views/widgets/password_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+  LoginViewBody({super.key});
 
+  final AuthController authController = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,7 +21,7 @@ class LoginViewBody extends StatelessWidget {
         left: 14,
       ),
       child: Form(
-        key: ,
+        key: authController.globalKey,
         child: Column(
           children: [
             Center(
@@ -31,14 +36,37 @@ class LoginViewBody extends StatelessWidget {
               height: 120,
             ),
             EmailTextField(
-              textEditingController: ,
+              textEditingController: authController.emailController,
             ),
             const SizedBox(
               height: 20,
             ),
             PasswordTextField(
-              textEditingController: ,
+              textEditingController: authController.passwordController,
             ),
+            const SizedBox(
+              height: 40,
+            ),
+            GestureDetector(
+              onTap: () {
+                if (authController.globalKey.currentState!.validate()) {
+                  log('loggin is done');
+                }
+              },
+              child: Container(
+                width: MediaQuery.sizeOf(context).width / 2,
+                height: 50,
+                decoration: BoxDecoration(
+                    color: Constants.buttonsMainColor,
+                    borderRadius: BorderRadius.circular(18)),
+                child: const Center(
+                  child: Text(
+                    'Login',
+                    style: Styles.buttonText1,
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
