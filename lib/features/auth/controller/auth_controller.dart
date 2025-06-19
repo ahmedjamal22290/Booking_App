@@ -5,10 +5,6 @@ import 'package:get/get.dart';
 
 class AuthController extends GetxController {
   final GlobalKey<FormState> globalKey = GlobalKey<FormState>();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
 
   final isLoggedIn = false.obs;
   final AuthServicce authServicce = AuthServicce();
@@ -24,12 +20,10 @@ class AuthController extends GetxController {
     isLoggedIn.value = email != null;
   }
 
-  Future<void> login() async {
-    String email = emailController.text.trim();
-    String passowrd = passwordController.text.trim();
+  Future<void> login({required String email, required String password}) async {
     try {
       final response = await authServicce.logInWithEmailPassword(
-          email: email, password: passowrd);
+          email: email, password: password);
       if (response.session != null) {
         isLoggedIn.value = true;
         Get.offAllNamed(AppRouts.homeView);
@@ -46,12 +40,11 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> register() async {
-    String email = emailController.text.trim();
-    String password = passwordController.text.trim();
-    String fName = firstNameController.text.trim();
-    String lName = lastNameController.text.trim();
-
+  Future<void> register(
+      {required String email,
+      required String password,
+      required String fName,
+      required String lName}) async {
     try {
       final response = await authServicce.registerWithEmailPassword(
         email: email,
@@ -77,14 +70,5 @@ class AuthController extends GetxController {
     await authServicce.signOut();
     isLoggedIn.value = false;
     Get.offAllNamed(AppRouts.loginView);
-  }
-
-  @override
-  void onClose() {
-    emailController.dispose();
-    passwordController.dispose();
-    firstNameController.dispose();
-    lastNameController.dispose();
-    super.onClose();
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:booking_app/core/utils/constants.dart';
 import 'package:booking_app/core/utils/styles.dart';
@@ -16,7 +14,8 @@ class LoginFormSection extends StatelessWidget {
   });
 
   final AuthController authController = Get.find<AuthController>();
-
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -35,13 +34,13 @@ class LoginFormSection extends StatelessWidget {
             height: 120,
           ),
           EmailTextField(
-            textEditingController: authController.emailController,
+            textEditingController: emailController,
           ),
           const SizedBox(
             height: 20,
           ),
           PasswordTextField(
-            textEditingController: authController.passwordController,
+            textEditingController: passwordController,
           ),
           const SizedBox(
             height: 40,
@@ -49,7 +48,10 @@ class LoginFormSection extends StatelessWidget {
           GestureDetector(
             onTap: () {
               if (authController.globalKey.currentState!.validate()) {
-                log('loggin is done');
+                authController.login(
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
+                );
               }
             },
             child: Container(

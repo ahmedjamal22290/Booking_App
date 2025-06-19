@@ -3,8 +3,9 @@ import 'package:booking_app/features/auth/presentation/views/widgets/register_fo
 import 'package:flutter/material.dart';
 
 class RegisterViewBody extends StatefulWidget {
-  const RegisterViewBody({super.key});
-
+  const RegisterViewBody({
+    super.key,
+  });
   @override
   State<RegisterViewBody> createState() => _RegisterViewBodyState();
 }

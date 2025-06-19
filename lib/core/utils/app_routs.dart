@@ -53,6 +53,7 @@ abstract class AppRouts {
     GetPage(
       name: loginView,
       page: () => const LoginView(),
+      binding: AuthBindings(),
       transition: Transition.fadeIn,
       curve: Curves.easeInOutCirc,
       transitionDuration: const Duration(milliseconds: 400),

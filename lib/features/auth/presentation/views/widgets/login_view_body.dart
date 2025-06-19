@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
-
   @override
   State<LoginViewBody> createState() => _LoginViewBodyState();
 }

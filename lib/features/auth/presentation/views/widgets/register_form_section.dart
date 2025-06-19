@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:booking_app/core/utils/constants.dart';
 import 'package:booking_app/core/utils/styles.dart';
@@ -17,6 +15,10 @@ class RegisterFormSection extends StatelessWidget {
   });
 
   final AuthController authController = Get.find<AuthController>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -38,11 +40,11 @@ class RegisterFormSection extends StatelessWidget {
             children: [
               NameTextField(
                   text: 'First Name',
-                  textEditingController: authController.firstNameController),
+                  textEditingController: firstNameController),
               const Spacer(),
               NameTextField(
                 text: 'Last Name',
-                textEditingController: authController.lastNameController,
+                textEditingController: lastNameController,
               )
             ],
           ),
@@ -50,13 +52,13 @@ class RegisterFormSection extends StatelessWidget {
             height: 20,
           ),
           EmailTextField(
-            textEditingController: authController.emailController,
+            textEditingController: emailController,
           ),
           const SizedBox(
             height: 20,
           ),
           PasswordTextField(
-            textEditingController: authController.passwordController,
+            textEditingController: passwordController,
           ),
           const SizedBox(
             height: 40,
@@ -64,7 +66,11 @@ class RegisterFormSection extends StatelessWidget {
           GestureDetector(
             onTap: () {
               if (authController.globalKey.currentState!.validate()) {
-                log('register is done by ${authController.emailController.text}:${authController.passwordController.text}');
+                authController.register(
+                    email: emailController.text.trim(),
+                    password: passwordController.text.trim(),
+                    fName: firstNameController.text,
+                    lName: lastNameController.text);
               }
             },
             child: Container(
