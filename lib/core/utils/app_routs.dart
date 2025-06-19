@@ -1,4 +1,5 @@
 import 'package:booking_app/features/auth/bindings/auth_bindings.dart';
+import 'package:booking_app/features/auth/presentation/views/auth_gate.dart';
 import 'package:booking_app/features/auth/presentation/views/login_view.dart';
 import 'package:booking_app/features/auth/presentation/views/register_view.dart';
 import 'package:booking_app/features/home/bindings/home_bindings.dart';
@@ -15,6 +16,7 @@ abstract class AppRouts {
   static const detailsView = '/detailsView';
   static const viewAllView = '/viewAllView';
   static const loginView = '/loginView';
+  static const authGate = '/authGate';
   static const registerView = '/registerView';
   static List<GetPage<dynamic>> routs = [
     GetPage(
@@ -41,10 +43,17 @@ abstract class AppRouts {
       transitionDuration: const Duration(milliseconds: 400),
     ),
     GetPage(
+      name: authGate,
+      page: () => AuthGate(),
+      transition: Transition.fadeIn,
+      binding: AuthBindings(),
+      curve: Curves.easeInOutCirc,
+      transitionDuration: const Duration(milliseconds: 400),
+    ),
+    GetPage(
       name: loginView,
       page: () => const LoginView(),
       transition: Transition.fadeIn,
-      binding: AuthBindings(),
       curve: Curves.easeInOutCirc,
       transitionDuration: const Duration(milliseconds: 400),
     ),
