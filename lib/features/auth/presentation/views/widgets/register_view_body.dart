@@ -5,6 +5,7 @@ import 'package:booking_app/core/utils/constants.dart';
 import 'package:booking_app/core/utils/styles.dart';
 import 'package:booking_app/features/auth/controller/auth_controller.dart';
 import 'package:booking_app/features/auth/presentation/views/widgets/email_textfield.dart';
+import 'package:booking_app/features/auth/presentation/views/widgets/name_textfield.dart';
 import 'package:booking_app/features/auth/presentation/views/widgets/navigator_text.dart';
 import 'package:booking_app/features/auth/presentation/views/widgets/password_textfield.dart';
 import 'package:flutter/material.dart';
@@ -39,55 +40,11 @@ class RegisterViewBody extends StatelessWidget {
             ),
             Row(
               children: [
-                SizedBox(
-                  width: MediaQuery.sizeOf(context).width / 2.2,
-                  child: TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      labelText: "First Name",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide:
-                            const BorderSide(color: Constants.buttonsMainColor),
-                      ),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter your first name";
-                      }
-
-                      return null;
-                    },
-                  ),
-                ),
+                NameTextField(
+                    text: 'First Name',
+                    textEditingController: ),
                 const Spacer(),
-                SizedBox(
-                  width: MediaQuery.sizeOf(context).width / 2.2,
-                  child: TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      labelText: "Last Name",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide:
-                            const BorderSide(color: Constants.buttonsMainColor),
-                      ),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter your last name";
-                      }
-
-                      return null;
-                    },
-                  ),
-                )
+                NameTextField(text: 'Last Name',textEditingController: ,)
               ],
             ),
             const SizedBox(
@@ -137,3 +94,4 @@ class RegisterViewBody extends StatelessWidget {
     );
   }
 }
+
