@@ -11,16 +11,36 @@ import 'package:booking_app/features/auth/presentation/views/widgets/password_te
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class RegisterViewBody extends StatelessWidget {
+class RegisterViewBody extends StatefulWidget {
   RegisterViewBody({super.key});
 
+  @override
+  State<RegisterViewBody> createState() => _RegisterViewBodyState();
+}
+
+class _RegisterViewBodyState extends State<RegisterViewBody> {
   final AuthController authController = Get.find<AuthController>();
+  bool animated = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        animated = true;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final screenH = MediaQuery.of(context).size.height;
     return Stack(
       children: [
-        Container(
-          height: MediaQuery.sizeOf(context).height / 3.0,
+        AnimatedContainer(
+          duration: Duration(milliseconds: 700),
+          curve: Curves.easeInOutCubic,
+          height: animated ? screenH * 0.36 : 30,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -31,8 +51,8 @@ class RegisterViewBody extends StatelessWidget {
             ],
             color: Color(0xff121A2C),
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(90),
-              bottomRight: Radius.circular(90),
+              bottomLeft: Radius.circular(animated ? 200 : 18),
+              bottomRight: Radius.circular(animated ? 200 : 18),
             ),
           ),
         ),
