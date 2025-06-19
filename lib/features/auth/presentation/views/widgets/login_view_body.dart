@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginViewBody extends StatefulWidget {
-  LoginViewBody({super.key});
+  const LoginViewBody({super.key});
 
   @override
   State<LoginViewBody> createState() => _LoginViewBodyState();
@@ -39,18 +39,18 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       child: Stack(
         children: [
           AnimatedContainer(
-            duration: Duration(milliseconds: 700),
+            duration: const Duration(milliseconds: 700),
             curve: Curves.easeInOutCubic,
             height: animated ? screenH * 0.36 : 30,
             decoration: BoxDecoration(
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black,
                   spreadRadius: 4,
                   blurRadius: 50,
                 )
               ],
-              color: Color(0xff121A2C),
+              color: const Color(0xff121A2C),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(animated ? 200 : 18),
                 bottomRight: Radius.circular(animated ? 200 : 18),
