@@ -37,6 +37,62 @@ class RegisterViewBody extends StatelessWidget {
             const SizedBox(
               height: 120,
             ),
+            Row(
+              children: [
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width / 2.2,
+                  child: TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      labelText: "First Name",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide:
+                            const BorderSide(color: Constants.buttonsMainColor),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please enter your first name";
+                      }
+
+                      return null;
+                    },
+                  ),
+                ),
+                const Spacer(),
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width / 2.2,
+                  child: TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      labelText: "Last Name",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide:
+                            const BorderSide(color: Constants.buttonsMainColor),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please enter your last name";
+                      }
+
+                      return null;
+                    },
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             EmailTextField(
               textEditingController: authController.emailController,
             ),
