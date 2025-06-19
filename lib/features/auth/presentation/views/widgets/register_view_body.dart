@@ -42,9 +42,12 @@ class RegisterViewBody extends StatelessWidget {
               children: [
                 NameTextField(
                     text: 'First Name',
-                    textEditingController: ),
+                    textEditingController: authController.firstNameController),
                 const Spacer(),
-                NameTextField(text: 'Last Name',textEditingController: ,)
+                NameTextField(
+                  text: 'Last Name',
+                  textEditingController: authController.lastNameController,
+                )
               ],
             ),
             const SizedBox(
@@ -94,4 +97,3 @@ class RegisterViewBody extends StatelessWidget {
     );
   }
 }
-
