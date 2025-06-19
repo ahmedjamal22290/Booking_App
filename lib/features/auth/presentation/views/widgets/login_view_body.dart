@@ -13,7 +13,7 @@ import 'package:get/get.dart';
 class LoginViewBody extends StatelessWidget {
   LoginViewBody({super.key});
 
-  final AuthController authController = Get.put(AuthController());
+  final AuthController authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,7 +23,7 @@ class LoginViewBody extends StatelessWidget {
         left: 14,
       ),
       child: Form(
-        key: authController.loginGlobalKey,
+        key: authController.globalKey,
         child: Column(
           children: [
             Center(
@@ -51,7 +51,7 @@ class LoginViewBody extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                if (authController.loginGlobalKey.currentState!.validate()) {
+                if (authController.globalKey.currentState!.validate()) {
                   log('loggin is done');
                 }
               },

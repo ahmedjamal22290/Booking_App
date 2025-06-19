@@ -13,7 +13,7 @@ import 'package:get/get.dart';
 class RegisterViewBody extends StatelessWidget {
   RegisterViewBody({super.key});
 
-  final AuthController authController = Get.put(AuthController());
+  final AuthController authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,12 +23,12 @@ class RegisterViewBody extends StatelessWidget {
         left: 14,
       ),
       child: Form(
-        key: authController.registerGlobalKey,
+        key: authController.globalKey,
         child: Column(
           children: [
             Center(
               child: Text(
-                'Login now',
+                'Register now',
                 style: Styles.headlines1.copyWith(
                   color: const Color(0xFF1C4BC3),
                 ),
@@ -51,8 +51,8 @@ class RegisterViewBody extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                if (authController.registerGlobalKey.currentState!.validate()) {
-                  log('loggin is done');
+                if (authController.globalKey.currentState!.validate()) {
+                  log('register is done by ${authController.emailController.text}:${authController.passwordController.text}');
                 }
               },
               child: Container(

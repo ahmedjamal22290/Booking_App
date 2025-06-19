@@ -1,3 +1,4 @@
+import 'package:booking_app/features/auth/bindings/auth_bindings.dart';
 import 'package:booking_app/features/auth/presentation/views/login_view.dart';
 import 'package:booking_app/features/auth/presentation/views/register_view.dart';
 import 'package:booking_app/features/home/bindings/home_bindings.dart';
@@ -43,12 +44,14 @@ abstract class AppRouts {
       name: loginView,
       page: () => const LoginView(),
       transition: Transition.fadeIn,
+      binding: AuthBindings(),
       curve: Curves.easeInOutCirc,
       transitionDuration: const Duration(milliseconds: 400),
     ),
     GetPage(
       name: registerView,
       page: () => const RegisterView(),
+      binding: AuthBindings(),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOutCirc,
       transitionDuration: const Duration(milliseconds: 400),
