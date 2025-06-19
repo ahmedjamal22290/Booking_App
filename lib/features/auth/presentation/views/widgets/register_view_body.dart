@@ -10,8 +10,8 @@ import 'package:booking_app/features/auth/presentation/views/widgets/password_te
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginViewBody extends StatelessWidget {
-  LoginViewBody({super.key});
+class RegisterViewBody extends StatelessWidget {
+  RegisterViewBody({super.key});
 
   final AuthController authController = Get.put(AuthController());
   @override
@@ -23,7 +23,7 @@ class LoginViewBody extends StatelessWidget {
         left: 14,
       ),
       child: Form(
-        key: authController.loginGlobalKey,
+        key: authController.registerGlobalKey,
         child: Column(
           children: [
             Center(
@@ -51,7 +51,7 @@ class LoginViewBody extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                if (authController.loginGlobalKey.currentState!.validate()) {
+                if (authController.registerGlobalKey.currentState!.validate()) {
                   log('loggin is done');
                 }
               },
@@ -63,7 +63,7 @@ class LoginViewBody extends StatelessWidget {
                     borderRadius: BorderRadius.circular(18)),
                 child: const Center(
                   child: Text(
-                    'Login',
+                    'Register',
                     style: Styles.buttonText1,
                   ),
                 ),
@@ -71,9 +71,9 @@ class LoginViewBody extends StatelessWidget {
             ),
             const SizedBox(height: 9),
             const NavigatorText(
-              constantText: "Don't have an account? ",
-              navText: 'Register Now',
-              navPage: AppRouts.registerView,
+              constantText: "You already have an accoun? ",
+              navText: 'Login Now',
+              navPage: AppRouts.loginView,
             )
           ],
         ),

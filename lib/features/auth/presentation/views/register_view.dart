@@ -1,3 +1,4 @@
+import 'package:booking_app/features/auth/presentation/views/widgets/register_view_body.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatelessWidget {
@@ -5,6 +6,9 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold());
+    return SafeArea(
+        child: Scaffold(
+      body: RegisterViewBody(),
+    ));
   }
 }
