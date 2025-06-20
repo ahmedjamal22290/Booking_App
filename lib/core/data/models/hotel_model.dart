@@ -34,6 +34,20 @@ class HotelModel {
       amenities: List<String>.from(json['amenities'] ?? []),
     );
   }
+  factory HotelModel.fromSupabase(Map<String, dynamic> json) {
+    return HotelModel(
+      name: json['name'],
+      city: json['city'],
+      description: json['description'],
+      link: json['link'],
+      overallRating: (json["overall_rating"]).toString(),
+      price: json['price'] ?? "--",
+      images: (json['images'] as List)
+          .map((img) => ImageModel.fromJson(img))
+          .toList(),
+      amenities: List<String>.from(json['amenities'] ?? []),
+    );
+  }
 
   Map<String, dynamic> toJson(String userId) {
     return {

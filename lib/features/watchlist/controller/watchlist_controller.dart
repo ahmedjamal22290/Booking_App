@@ -30,7 +30,7 @@ class WatchlistController extends GetxController {
           await supabase.from('watchlist').select().eq('user_id', user.user.id);
       List<HotelModel> hotels = [];
       for (var element in response) {
-        hotels.add(HotelModel.fromJson(element));
+        hotels.add(HotelModel.fromSupabase(element));
       }
       watchList.assignAll(hotels);
     } on Exception catch (e) {
@@ -50,18 +50,6 @@ class WatchlistController extends GetxController {
       });
     } on Exception catch (e) {
       throw Exception('Failed to fetch watchlist: $e');
-    }
-  }
-
-  void add(HotelModel hotelModel) {
-    watchList.add(hotelModel);
-  }
-
-  void delete(HotelModel hotelModel) {
-    for (int i = 0; i < watchList.length; i++) {
-      if (watchList[i] == hotelModel) {
-        watchList.removeAt(i);
-      }
     }
   }
 }
