@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
