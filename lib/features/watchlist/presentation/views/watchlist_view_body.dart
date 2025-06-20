@@ -9,6 +9,7 @@ class WatchlistViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetX<WatchlistController>(builder: (controller) {
+      controller.getUserWatchlist();
       if (controller.watchList.isEmpty) {
         return const Center(
           child: Text('watchlist'),

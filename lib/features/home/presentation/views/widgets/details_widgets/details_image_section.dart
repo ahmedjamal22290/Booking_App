@@ -66,9 +66,9 @@ class _DetailsImageSectionState extends State<DetailsImageSection> {
                 onPressed: () {
                   widget.hotelModel.isFav = !widget.hotelModel.isFav;
                   if (widget.hotelModel.isFav) {
-                    watchlistController.add(widget.hotelModel);
+                    watchlistController.addToWatchList(widget.hotelModel);
                   } else {
-                    watchlistController.delete(widget.hotelModel);
+                    watchlistController.deleteFromWatchList(widget.hotelModel);
                   }
                   setState(() {});
                 },

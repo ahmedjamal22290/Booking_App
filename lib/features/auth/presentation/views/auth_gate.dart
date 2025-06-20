@@ -1,3 +1,4 @@
+import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:booking_app/features/auth/controller/auth_controller.dart';
 import 'package:booking_app/features/auth/presentation/views/login_view.dart';
 import 'package:booking_app/features/home/presentation/views/home_view.dart';
@@ -11,7 +12,9 @@ class AuthGate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       if (authController.isLoggedIn.value) {
-        return HomeView();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          Get.offAllNamed(AppRouts.homeView);
+        });
       }
       return const LoginView();
     });
