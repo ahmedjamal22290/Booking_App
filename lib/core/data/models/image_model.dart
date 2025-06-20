@@ -7,4 +7,10 @@ class ImageModel {
         thumbnail: image['thumbnail']!,
         originalImage: image["original_image"]!);
   }
+  Map<String, dynamic> toJson() {
+    return {
+      'thumbnail': thumbnail,
+      'original_image': originalImage,
+    };
+  }
 }

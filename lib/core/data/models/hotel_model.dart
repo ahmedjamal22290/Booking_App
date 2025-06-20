@@ -34,4 +34,19 @@ class HotelModel {
       amenities: List<String>.from(json['amenities'] ?? []),
     );
   }
+
+  Map<String, dynamic> toJson(String userId) {
+    return {
+      'user_id': userId,
+      'name': name,
+      'city': city,
+      'description': description,
+      'link': link,
+      'overall_rating': overallRating,
+      'price': price,
+      'images': images.map((img) => img.toJson()).toList(),
+      'amenities': amenities,
+      'created_at': DateTime.now().toIso8601String(),
+    };
+  }
 }
