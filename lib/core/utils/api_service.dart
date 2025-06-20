@@ -10,10 +10,10 @@ class ApiService {
       {required String city, String? checkIn, String? checkOut}) async {
     if (checkIn == null) {
       checkIn =
-          "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day.toString()}";
+          "${DateTime.now().year}-${DateTime.now().month.toString().padLeft(2, '0')}-${DateTime.now().day.toString().padLeft(2, '0')}";
       DateTime dateAfterWeek = DateTime.now().add(const Duration(days: 7));
       checkOut =
-          "${dateAfterWeek.year}-${dateAfterWeek.month}-${dateAfterWeek.day.toString()}";
+          "${dateAfterWeek.year}-${dateAfterWeek.month.toString().padLeft(2, '0')}-${dateAfterWeek.day.toString().padLeft(2, '0')}";
     }
     String requestUrl = "$_baseUrl$_apiKey"
         "&q=$city&check_in_date=$checkIn&check_out_date=$checkOut";

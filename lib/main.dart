@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -10,6 +12,7 @@ void main() async {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94dm9meWNsbmFteG9rcndzd2tuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAzMzgxNzcsImV4cCI6MjA2NTkxNDE3N30.YJVceLQgpmupCwyoVwjgbUu-6OCUHM0y6ieAjKUxRKs",
     url: "https://oxvofyclnamxokrwswkn.supabase.co",
   );
+
   runApp(const BookingApp());
 }
 
