@@ -13,9 +13,10 @@ class WatchlistController extends GetxController {
     }
 
     final data = hotel.toJson(user.user.id);
-    final response = await supabase.from('watchlist').insert(data);
-    if (response.error != null) {
-      throw Exception('Failed to add to watchlist: ${response.error!.message}');
+    try {
+      final response = await supabase.from('watchlist').insert(data);
+    } on Exception catch (e) {
+      throw Exception('Failed to fetch watchlist: $e');
     }
   }
 
@@ -24,13 +25,32 @@ class WatchlistController extends GetxController {
     if (user == null) {
       throw Exception('User not logged in');
     }
-    final response =
-        await supabase.from('watchlist').select().eq('user_id', user.user.id);
-    List<HotelModel> hotels = [];
-    for (var element in response) {
-      hotels.add(HotelModel.fromJson(element));
+    try {
+      final response =
+          await supabase.from('watchlist').select().eq('user_id', user.user.id);
+      List<HotelModel> hotels = [];
+      for (var element in response) {
+        hotels.add(HotelModel.fromJson(element));
+      }
+      watchList.assignAll(hotels);
+    } on Exception catch (e) {
+      throw Exception('Failed to fetch watchlist: $e');
     }
-    watchList.assignAll(hotels);
+  }
+
+  Future<void> deleteFromWatchList(HotelModel hotel) async {
+    final user = supabase.auth.currentSession;
+    if (user == null) {
+      throw Exception('User not logged in');
+    }
+    try {
+      final response = await supabase.from('watchlist').delete().match({
+        'user_id': user.user.id,
+        'name': hotel.name,
+      });
+    } on Exception catch (e) {
+      throw Exception('Failed to fetch watchlist: $e');
+    }
   }
 
   void add(HotelModel hotelModel) {
