@@ -9,10 +9,11 @@ class HotelModel {
   final List<ImageModel> images;
   final List<String> amenities;
   String? city;
-  bool isFav = false;
+  bool isFav;
 
   HotelModel(
       {this.city,
+      this.isFav = false,
       required this.name,
       required this.description,
       required this.link,
@@ -38,6 +39,7 @@ class HotelModel {
     return HotelModel(
       name: json['name'],
       city: json['city'],
+      isFav: true,
       description: json['description'],
       link: json['link'],
       overallRating: (json["overall_rating"]).toString(),

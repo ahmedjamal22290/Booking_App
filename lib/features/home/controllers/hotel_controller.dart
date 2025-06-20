@@ -1,6 +1,7 @@
 import 'package:booking_app/core/data/models/hotel_model.dart';
 
 import 'package:booking_app/features/home/data/repos/hotel_repo.dart';
+import 'package:booking_app/features/watchlist/controller/watchlist_controller.dart';
 import 'package:get/get.dart';
 
 class HotelController extends GetxController {
@@ -8,7 +9,7 @@ class HotelController extends GetxController {
   var exploreHotels = <HotelModel>[].obs;
 
   final HotelRepo hotelRepo;
-
+  WatchlistController watchlistController = Get.find<WatchlistController>();
   var isLoadingNearby = false.obs;
   var isLoadingExplore = false.obs;
 
@@ -32,6 +33,13 @@ class HotelController extends GetxController {
         nearbyErrorMessage.value = failure.errorMessage;
       },
       (list) {
+        final favHotelNames =
+            watchlistController.watchList.map((e) => e.name).toSet();
+
+        for (var hotel in list) {
+          hotel.isFav = favHotelNames.contains(hotel.name);
+        }
+
         nearHotels.assignAll(list);
       },
     );
@@ -46,6 +54,13 @@ class HotelController extends GetxController {
         exploreErrorMessage.value = failure.errorMessage;
       },
       (list) {
+        final favHotelNames =
+            watchlistController.watchList.map((e) => e.name).toSet();
+
+        for (var hotel in list) {
+          hotel.isFav = favHotelNames.contains(hotel.name);
+        }
+
         exploreHotels.assignAll(list);
       },
     );

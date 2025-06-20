@@ -4,6 +4,11 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 class WatchlistController extends GetxController {
   var watchList = <HotelModel>[].obs;
+  @override
+  void onInit() {
+    super.onInit();
+    getUserWatchlist();
+  }
 
   final supabase = Supabase.instance.client;
   Future<void> addToWatchList(HotelModel hotel) async {
@@ -32,6 +37,7 @@ class WatchlistController extends GetxController {
       for (var element in response) {
         hotels.add(HotelModel.fromSupabase(element));
       }
+
       watchList.assignAll(hotels);
     } on Exception catch (e) {
       throw Exception('Failed to fetch watchlist: $e');

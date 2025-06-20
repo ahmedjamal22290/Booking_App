@@ -10,11 +10,11 @@ import 'package:get/get.dart';
 class HomeBindings extends Bindings {
   @override
   void dependencies() {
+    Get.put(WatchlistController());
     Get.put(SearchingController());
     Get.put<HotelRepo>(
       HotelRepoImpl(apiService: ApiService(dio: Dio())),
     );
     Get.put(HotelController(hotelRepo: Get.find()));
-    Get.put(WatchlistController());
   }
 }
