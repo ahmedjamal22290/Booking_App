@@ -1,4 +1,7 @@
+import "package:booking_app/features/profile/controllers/theme_conroller.dart";
 import "package:flutter/material.dart";
+import "package:get/get.dart";
+import "package:get/utils.dart";
 import "package:lottie/lottie.dart";
 
 class ThemeModeAnimation extends StatefulWidget {
@@ -14,7 +17,7 @@ class _ThemeModeAnimationState extends State<ThemeModeAnimation>
   LottieComposition? _composition;
   double _startFrame = 0;
   double _endFrame = 270;
-  bool isDark = false;
+  final ThemeConroller themeConroller = Get.find<ThemeConroller>();
   @override
   void initState() {
     super.initState();
@@ -28,9 +31,14 @@ class _ThemeModeAnimationState extends State<ThemeModeAnimation>
         context,
       ).load('assets/lottie/change_mode_animation.json'),
     );
+    final totalFrames = compostion.endFrame - compostion.startFrame;
+
+    final double start = _startFrame / totalFrames;
+    final double end = _endFrame / totalFrames;
     setState(() {
       _composition = compostion;
       _controller.duration = Duration(seconds: 4);
+      _controller.value = themeConroller.isDark.value ? end : start;
     });
   }
 
@@ -40,14 +48,12 @@ class _ThemeModeAnimationState extends State<ThemeModeAnimation>
     double totalFrames = _composition!.endFrame - _composition!.startFrame;
     double start = _startFrame / totalFrames;
     double end = _endFrame / totalFrames;
-    if (!isDark) {
+    if (!themeConroller.isDark.value) {
       await _controller.animateTo(end);
     } else {
       await _controller.animateBack(start, curve: Curves.easeOutCubic);
     }
-    setState(() {
-      isDark = !isDark;
-    });
+    themeConroller.toggleTheme();
   }
 
   @override
