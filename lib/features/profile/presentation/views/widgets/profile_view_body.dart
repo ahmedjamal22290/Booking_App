@@ -38,8 +38,9 @@ class ProfileViewBody extends StatelessWidget {
           ),
         ),
         //Name of user and his email
-
-        //list of options for settings
+        Text('userName', style: Theme.of(context).textTheme.titleLarge),
+        const SizedBox(height: 5),
+        Text('userEmail', style: Theme.of(context).textTheme.bodyMedium),
       ],
     );
   }
