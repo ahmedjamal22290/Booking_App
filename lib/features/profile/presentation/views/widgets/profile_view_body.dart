@@ -9,12 +9,36 @@ class ProfileViewBody extends StatelessWidget {
     return Column(
       children: [
         //logout icon in the right of screen
-        Lottie.asset('assets/lottie/logout_animation.json'),
+        Row(
+          children: [
+            //change theme option
+            Container(
+              height: 50,
+              alignment: Alignment.topLeft,
+              child: Lottie.asset('assets/lottie/change_mode_animation.json'),
+            ),
+            Spacer(),
+            SizedBox(
+              height: 80,
+              child: Lottie.asset(
+                'assets/lottie/logout_animation.json',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ],
+        ),
         //animated profile icon in the center
-        Lottie.asset('assets/lottie/profile_animation.json'),
+        Container(
+          alignment: Alignment.topCenter,
+          height: 350,
+          child: Lottie.asset(
+            'assets/lottie/profile_animation.json',
+
+            fit: BoxFit.cover,
+          ),
+        ),
         //Name of user and his email
-        //change theme option
-        Lottie.asset('assets/lottie/change_mode_animation.json')
+
         //list of options for settings
       ],
     );

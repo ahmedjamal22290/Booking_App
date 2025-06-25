@@ -22,8 +22,8 @@ class BookingApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // scaffoldBackgroundColor: Colors.white,
-        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.white,
+        // brightness: Brightness.dark,
       ),
       initialRoute: '/',
       getPages: AppRouts.routs,
