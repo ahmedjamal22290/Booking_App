@@ -10,18 +10,26 @@ class HotelModel {
   final List<String> amenities;
   String? city;
   bool isFav;
+  static const String errorImageUrl =
+      'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg';
 
-  HotelModel(
-      {this.city,
-      this.isFav = false,
-      required this.name,
-      required this.description,
-      required this.link,
-      required this.overallRating,
-      required this.price,
-      required this.images,
-      required this.amenities});
+  HotelModel({
+    this.city,
+    this.isFav = false,
+    required this.name,
+    required this.description,
+    required this.link,
+    required this.overallRating,
+    required this.price,
+    required this.images,
+    required this.amenities,
+  });
   factory HotelModel.fromJson(Map<String, dynamic> json) {
+    final rawImages = json['images'] as List<dynamic>?;
+
+    final parsedImages = (rawImages != null && rawImages.isNotEmpty)
+        ? rawImages.map((img) => ImageModel.fromJson(img)).toList()
+        : [ImageModel(thumbnail: errorImageUrl, originalImage: errorImageUrl)];
     return HotelModel(
       name: json['name'],
       city: json['name'],
@@ -29,9 +37,7 @@ class HotelModel {
       link: json['link'],
       overallRating: (json["overall_rating"]).toString(),
       price: json["rate_per_night"]?["lowest"] ?? "--",
-      images: (json['images'] as List)
-          .map((img) => ImageModel.fromJson(img))
-          .toList(),
+      images: parsedImages,
       amenities: List<String>.from(json['amenities'] ?? []),
     );
   }
