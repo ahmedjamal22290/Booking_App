@@ -17,7 +17,7 @@ class _ThemeModeAnimationState extends State<ThemeModeAnimation>
   LottieComposition? _composition;
   double _startFrame = 0;
   double _endFrame = 270;
-  final ThemeConroller themeConroller = Get.find<ThemeConroller>();
+  final ThemeController themeConroller = Get.find<ThemeController>();
   @override
   void initState() {
     super.initState();

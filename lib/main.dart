@@ -1,6 +1,9 @@
 import 'package:booking_app/core/utils/app_routs.dart';
+import 'package:booking_app/features/profile/controllers/theme_conroller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/state_manager.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
@@ -10,6 +13,7 @@ void main() async {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94dm9meWNsbmFteG9rcndzd2tuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAzMzgxNzcsImV4cCI6MjA2NTkxNDE3N30.YJVceLQgpmupCwyoVwjgbUu-6OCUHM0y6ieAjKUxRKs",
     url: "https://oxvofyclnamxokrwswkn.supabase.co",
   );
+  Get.put(ThemeController());
 
   runApp(const BookingApp());
 }
@@ -19,14 +23,22 @@ class BookingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        // brightness: Brightness.dark,
-      ),
-      initialRoute: '/',
-      getPages: AppRouts.routs,
+    return GetX<ThemeController>(
+      builder: (themeContller) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            scaffoldBackgroundColor: themeContller.isDark.value
+                ? null
+                : Colors.white,
+            brightness: themeContller.isDark.value
+                ? Brightness.dark
+                : Brightness.light,
+          ),
+          initialRoute: '/',
+          getPages: AppRouts.routs,
+        );
+      },
     );
   }
 }
