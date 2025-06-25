@@ -17,7 +17,9 @@ class HotelItemVertical extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).brightness == Brightness.dark
+              ? const Color.fromARGB(255, 44, 41, 41)
+              : Colors.white,
           borderRadius: BorderRadius.circular(12),
           boxShadow: const [
             BoxShadow(
@@ -50,14 +52,21 @@ class HotelItemVertical extends StatelessWidget {
                 children: [
                   Text(
                     hotel.name,
-                    style: Styles.itemsTitleStyle.copyWith(color: Colors.black),
+                    style: Styles.itemsTitleStyle.copyWith(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
+                    ),
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
                   Text(
                     hotel.city ?? hotel.name,
-                    style:
-                        Styles.itemsSubtitleStyle.copyWith(color: Colors.black),
+                    style: Styles.itemsSubtitleStyle.copyWith(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
+                    ),
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 6),
@@ -66,16 +75,20 @@ class HotelItemVertical extends StatelessWidget {
                       Text(
                         '${hotel.price.toString()}/',
                         style: Styles.itemsTitleStyle.copyWith(
-                            fontSize: 12.2,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
+                          fontSize: 12.2,
+                          fontWeight: FontWeight.w500,
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : Colors.black,
+                        ),
                       ),
                       Text(
                         'night',
                         style: Styles.itemsTitleStyle.copyWith(
-                            fontSize: 12.2,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey),
+                          fontSize: 12.2,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey,
+                        ),
                       ),
                     ],
                   ),
@@ -91,8 +104,12 @@ class HotelItemVertical extends StatelessWidget {
                           hotel.overallRating!.length >= 3
                       ? hotel.overallRating!.substring(0, 3)
                       : hotel.overallRating ?? 'N/A',
-                  style: Styles.itemsTitleStyle
-                      .copyWith(fontSize: 14, color: Colors.black),
+                  style: Styles.itemsTitleStyle.copyWith(
+                    fontSize: 14,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
+                  ),
                 ),
               ],
             ),

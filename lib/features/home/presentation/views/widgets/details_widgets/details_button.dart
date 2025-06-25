@@ -4,11 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DetailsButton extends StatelessWidget {
-  const DetailsButton({
-    super.key,
-    required this.price,
-    required this.link,
-  });
+  const DetailsButton({super.key, required this.price, required this.link});
   final String price, link;
   @override
   Widget build(BuildContext context) {
@@ -22,7 +18,9 @@ class DetailsButton extends StatelessWidget {
               Text(
                 'price estimate',
                 style: Styles.description1.copyWith(
-                  color: const Color(0xff787878),
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : const Color(0xff787878),
                 ),
               ),
               const Spacer(),
@@ -33,15 +31,18 @@ class DetailsButton extends StatelessWidget {
                     style: Styles.itemsTitleStyle.copyWith(
                       fontSize: 19,
                       fontWeight: FontWeight.w500,
-                      color: Colors.black,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
                     ),
                   ),
                   Text(
                     '/night',
                     style: Styles.itemsTitleStyle.copyWith(
-                        fontSize: 13.2,
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xff787878)),
+                      fontSize: 13.2,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff787878),
+                    ),
                   ),
                 ],
               ),
@@ -64,13 +65,10 @@ class DetailsButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14),
               ),
               child: const Center(
-                child: Text(
-                  'Reserve Now',
-                  style: Styles.buttonText2,
-                ),
+                child: Text('Reserve Now', style: Styles.buttonText2),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

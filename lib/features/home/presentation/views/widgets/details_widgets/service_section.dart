@@ -3,10 +3,7 @@ import 'package:booking_app/features/home/presentation/views/widgets/details_wid
 import 'package:flutter/material.dart';
 
 class ServiceSection extends StatelessWidget {
-  const ServiceSection({
-    super.key,
-    required this.service,
-  });
+  const ServiceSection({super.key, required this.service});
   final List<String> service;
   @override
   Widget build(BuildContext context) {
@@ -18,14 +15,14 @@ class ServiceSection extends StatelessWidget {
           Text(
             'Services & Facilities',
             style: Styles.detailsMainTitle.copyWith(
-              color: const Color(0xff323232),
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : const Color(0xff323232),
               fontSize: 20,
             ),
           ),
           const SizedBox(height: 11),
-          GridServiceBuilder(
-            service: service,
-          )
+          GridServiceBuilder(service: service),
         ],
       ),
     );

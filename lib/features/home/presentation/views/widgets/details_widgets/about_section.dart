@@ -2,10 +2,7 @@ import 'package:booking_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class AboutSection extends StatelessWidget {
-  const AboutSection({
-    super.key,
-    this.description,
-  });
+  const AboutSection({super.key, this.description});
   final String? description;
   @override
   Widget build(BuildContext context) {
@@ -17,16 +14,16 @@ class AboutSection extends StatelessWidget {
           Text(
             'About Us',
             style: Styles.detailsMainTitle.copyWith(
-              color: const Color(0xff323232),
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : const Color(0xff323232),
               fontSize: 20,
             ),
           ),
           Text(
             description ?? '',
-            style: Styles.description1.copyWith(
-              color: const Color(0xff787878),
-            ),
-          )
+            style: Styles.description1.copyWith(color: const Color(0xff787878)),
+          ),
         ],
       ),
     );

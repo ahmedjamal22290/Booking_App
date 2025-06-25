@@ -13,13 +13,15 @@ class CustomNavigatorBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            offset: const Offset(0, -0.5),
-            blurRadius: 10,
-            color: Colors.black.withAlpha((0.3 * 255).toInt()),
-          ),
-        ],
+        boxShadow: Theme.of(context).brightness == Brightness.dark
+            ? []
+            : [
+                BoxShadow(
+                  offset: const Offset(0, -0.5),
+                  blurRadius: 10,
+                  color: Colors.black.withAlpha((0.3 * 255).toInt()),
+                ),
+              ],
       ),
       child: BottomNavigationBar(
         currentIndex: navController.selectedIndex.value,

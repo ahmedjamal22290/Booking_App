@@ -7,56 +7,55 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class NearHotelSection extends StatelessWidget {
-  const NearHotelSection({
-    super.key,
-  });
+  const NearHotelSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetX<HotelController>(builder: (controller) {
-      if (controller.isLoadingNearby.value) {
-        return const CircularProgressIndicator();
-      }
-      if (controller.nearbyErrorMessage.isNotEmpty) {
-        return Center(
-          child: Text(controller.nearbyErrorMessage.value),
-        );
-      }
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Text(
-                'Hotels Near You',
-                style: Styles.mainWidgetsText1.copyWith(
-                  color: Colors.black,
-                  fontSize: 21.66,
+    return GetX<HotelController>(
+      builder: (controller) {
+        if (controller.isLoadingNearby.value) {
+          return const CircularProgressIndicator();
+        }
+        if (controller.nearbyErrorMessage.isNotEmpty) {
+          return Center(child: Text(controller.nearbyErrorMessage.value));
+        }
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Text(
+                  'Hotels Near You',
+                  style: Styles.mainWidgetsText1.copyWith(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
+                    fontSize: 21.66,
+                  ),
                 ),
-              ),
-              const Spacer(),
-              ViewAllButton(
-                onTap: () {
-                  Get.toNamed(AppRouts.viewAllView,
-                      arguments: controller.nearHotels);
-                },
-              ),
-              const SizedBox(
-                width: 12.31,
-              )
-            ],
-          ),
-          const SizedBox(height: 9.72),
-          SizedBox(
-            height: (160.26 / 594.99).toDouble() *
-                MediaQuery.sizeOf(context).height,
-            width: MediaQuery.sizeOf(context).width,
-            child: NearHotelListBuilder(
-              items: controller.nearHotels,
+                const Spacer(),
+                ViewAllButton(
+                  onTap: () {
+                    Get.toNamed(
+                      AppRouts.viewAllView,
+                      arguments: controller.nearHotels,
+                    );
+                  },
+                ),
+                const SizedBox(width: 12.31),
+              ],
             ),
-          ),
-        ],
-      );
-    });
+            const SizedBox(height: 9.72),
+            SizedBox(
+              height:
+                  (160.26 / 594.99).toDouble() *
+                  MediaQuery.sizeOf(context).height,
+              width: MediaQuery.sizeOf(context).width,
+              child: NearHotelListBuilder(items: controller.nearHotels),
+            ),
+          ],
+        );
+      },
+    );
   }
 }

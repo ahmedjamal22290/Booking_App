@@ -6,38 +6,37 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomMainContainer extends StatelessWidget {
-  const CustomMainContainer({
-    super.key,
-  });
+  const CustomMainContainer({super.key});
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SearchingController>(builder: (controller) {
-      return AnimatedSwitcher(
-        duration: const Duration(milliseconds: 350),
-        transitionBuilder: (child, animation) {
-          return FadeTransition(
-            opacity: animation,
-            child: child,
-          );
-        },
-        child: Container(
-          key: ValueKey(controller.isActive),
-          height:
-              (404.57 / 594.99).toDouble() * MediaQuery.sizeOf(context).height,
-          width: MediaQuery.sizeOf(context).width,
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
+    return GetBuilder<SearchingController>(
+      builder: (controller) {
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 350),
+          transitionBuilder: (child, animation) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+          child: Container(
+            key: ValueKey(controller.isActive),
+            height:
+                (404.57 / 594.99).toDouble() *
+                MediaQuery.sizeOf(context).height,
+            width: MediaQuery.sizeOf(context).width,
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+              borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(18.66),
-                topRight: Radius.circular(18.66)),
+                topRight: Radius.circular(18.66),
+              ),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.only(left: 17.52, top: 17.27),
+              child: ContentList(),
+            ),
           ),
-          child: const Padding(
-            padding: EdgeInsets.only(left: 17.52, top: 17.27),
-            child: ContentList(),
-          ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }
 
@@ -55,7 +54,7 @@ class ContentList extends StatelessWidget {
             children: [
               NearHotelSection(),
               SizedBox(height: 17.27),
-              ExploreHotelsSection()
+              ExploreHotelsSection(),
             ],
           );
         }

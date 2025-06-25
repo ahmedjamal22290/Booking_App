@@ -17,26 +17,16 @@ class DetailsViewBody extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             slivers: [
               SliverToBoxAdapter(
-                child: DetailsImageSection(
-                  hotelModel: hotelModel,
-                ),
+                child: DetailsImageSection(hotelModel: hotelModel),
               ),
-              const SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 26.23,
-                ),
-              ),
+              const SliverToBoxAdapter(child: SizedBox(height: 26.23)),
               SliverToBoxAdapter(
                 child: hotelModel.description != null
-                    ? AboutSection(
-                        description: hotelModel.description,
-                      )
+                    ? AboutSection(description: hotelModel.description)
                     : const SizedBox(),
               ),
               SliverToBoxAdapter(
-                child: ServiceSection(
-                  service: hotelModel.amenities,
-                ),
+                child: ServiceSection(service: hotelModel.amenities),
               ),
             ],
           ),
@@ -44,19 +34,26 @@ class DetailsViewBody extends StatelessWidget {
         Container(
           height: (50.86 / 594.99) * MediaQuery.sizeOf(context).height,
           width: MediaQuery.sizeOf(context).width,
-          decoration: const BoxDecoration(color: Colors.white, boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              offset: Offset(0, -0.5),
-              blurRadius: 20,
-              spreadRadius: 2,
-            )
-          ]),
+          decoration: BoxDecoration(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? const Color.fromARGB(255, 27, 26, 26)
+                : Colors.white,
+            boxShadow: Theme.of(context).brightness == Brightness.dark
+                ? []
+                : [
+                    BoxShadow(
+                      color: Colors.black26,
+                      offset: Offset(0, -0.5),
+                      blurRadius: 20,
+                      spreadRadius: 2,
+                    ),
+                  ],
+          ),
           child: DetailsButton(
             link: hotelModel.link ?? 'none',
             price: hotelModel.price,
           ),
-        )
+        ),
       ],
     );
   }
