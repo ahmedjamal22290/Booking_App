@@ -31,10 +31,26 @@ class ProfileViewBody extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+
         //Name of user and his email
-        Text('userName', style: Theme.of(context).textTheme.titleLarge),
+        Text(
+          authController.userData['first_Name']!,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        const SizedBox(height: 2),
+        Text(
+          authController.userData['last_Name']!,
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
         const SizedBox(height: 5),
-        Text('userEmail', style: Theme.of(context).textTheme.bodyMedium),
+        Text(
+          "Last Sign:${authController.userData['last sign']!.substring(0, 10)}",
+          style: Theme.of(context).textTheme.labelMedium,
+        ),
+        Text(
+          "Created At:${authController.userData['created at']!.substring(0, 10)}",
+          style: Theme.of(context).textTheme.labelMedium,
+        ),
       ],
     );
   }

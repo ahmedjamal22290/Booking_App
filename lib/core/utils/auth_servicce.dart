@@ -22,7 +22,7 @@ class AuthServicce {
     return await _supabaseClient.auth.signUp(
       password: password,
       email: email,
-      data: {'first name': fName, 'last name': lName},
+      data: {'first_name': fName, 'last_name': lName},
     );
   }
 
@@ -36,11 +36,11 @@ class AuthServicce {
     final firstName = user?.userMetadata?['first_name'];
     final lastName = user?.userMetadata?['last_name'];
     data = {
-      'first Name': firstName,
-      'last Name': lastName,
+      'first_Name': firstName ?? "null",
+      'last_Name': lastName ?? "null",
       'email': user!.email!,
-      'last sign': user.lastSignInAt!,
-      'created at': user.createdAt,
+      'last_sign': user.lastSignInAt!,
+      'created_at': user.createdAt,
     };
     return data;
   }
