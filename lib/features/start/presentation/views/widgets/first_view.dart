@@ -16,7 +16,8 @@ class FirstView extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only(
-                    top: 0.20504 * MediaQuery.of(context).size.height),
+                  top: 0.20504 * MediaQuery.of(context).size.height,
+                ),
                 child: SizedBox(
                   height: 0.20000 * MediaQuery.of(context).size.height,
                   width: 0.3577 * MediaQuery.of(context).size.width,
@@ -32,28 +33,34 @@ class FirstView extends StatelessWidget {
         ),
         const SizedBox(height: 52.03),
         Padding(
-            padding: EdgeInsets.only(
-                left: 0.09790 * MediaQuery.of(context).size.width,
-                right: 0.09870 * MediaQuery.of(context).size.width),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'Your journey begins with comfort and care.',
-                  style: Styles.headlines1,
+          padding: EdgeInsets.only(
+            left: 0.09790 * MediaQuery.of(context).size.width,
+            right: 0.09870 * MediaQuery.of(context).size.width,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Your journey begins with comfort and care.',
+                style: Styles.headlines1.copyWith(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 8.8),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.0),
+                child: Text(
+                  'Start your trip stress-free with smooth check-ins and cozy stays designed for your comfort.',
+                  style: Styles.description1,
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 8.8),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0),
-                  child: Text(
-                    'Start your trip stress-free with smooth check-ins and cozy stays designed for your comfort.',
-                    style: Styles.description1,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ))
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }

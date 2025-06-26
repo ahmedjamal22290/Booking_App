@@ -6,9 +6,11 @@ class StartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? null
+            : Colors.white,
         body: StartViewBody(),
       ),
     );
