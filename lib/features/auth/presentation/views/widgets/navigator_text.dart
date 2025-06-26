@@ -17,8 +17,10 @@ class NavigatorText extends StatelessWidget {
       children: [
         Text(
           constantText,
-          style: const TextStyle(
-            color: Colors.black,
+          style: TextStyle(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.grey
+                : Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),
