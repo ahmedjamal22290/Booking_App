@@ -33,22 +33,30 @@ class ProfileViewBody extends StatelessWidget {
         ),
 
         //Name of user and his email
-        Text(
-          authController.userData['first_Name']!,
-          style: Theme.of(context).textTheme.titleLarge,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              authController.userData['first_Name']!,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(width: 2),
+
+            Text(
+              authController.userData['last_Name']!,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ],
         ),
-        const SizedBox(height: 2),
+        const SizedBox(height: 5),
+
         Text(
-          authController.userData['last_Name']!,
-          style: Theme.of(context).textTheme.bodyLarge,
+          "Last Sign:${authController.userData['last_sign']!.substring(0, 10)}",
+          style: Theme.of(context).textTheme.labelMedium,
         ),
         const SizedBox(height: 5),
         Text(
-          "Last Sign:${authController.userData['last sign']!.substring(0, 10)}",
-          style: Theme.of(context).textTheme.labelMedium,
-        ),
-        Text(
-          "Created At:${authController.userData['created at']!.substring(0, 10)}",
+          "Created At:${authController.userData['created_at']!.substring(0, 10)}",
           style: Theme.of(context).textTheme.labelMedium,
         ),
       ],
