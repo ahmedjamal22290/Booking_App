@@ -8,7 +8,7 @@ class AuthController extends GetxController {
 
   final isLoggedIn = false.obs;
   final AuthServicce authServicce = AuthServicce();
-
+  final Map<String, String> userData = <String, String>{}.obs;
   @override
   void onInit() {
     super.onInit();
@@ -18,12 +18,17 @@ class AuthController extends GetxController {
   void checkLoginStatus() {
     final email = authServicce.getCurrentUserEmail();
     isLoggedIn.value = email != null;
+    if (isLoggedIn.value) {
+      getData();
+    }
   }
 
   Future<void> login({required String email, required String password}) async {
     try {
       final response = await authServicce.logInWithEmailPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
       if (response.session != null) {
         isLoggedIn.value = true;
         Get.offAllNamed(AppRouts.homeView);
@@ -35,16 +40,20 @@ class AuthController extends GetxController {
         );
       }
     } catch (e) {
-      Get.snackbar('Error', 'Login failed: $e',
-          snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar(
+        'Error',
+        'Login failed: $e',
+        snackPosition: SnackPosition.BOTTOM,
+      );
     }
   }
 
-  Future<void> register(
-      {required String email,
-      required String password,
-      required String fName,
-      required String lName}) async {
+  Future<void> register({
+    required String email,
+    required String password,
+    required String fName,
+    required String lName,
+  }) async {
     try {
       final response = await authServicce.registerWithEmailPassword(
         email: email,
@@ -57,18 +66,29 @@ class AuthController extends GetxController {
         isLoggedIn.value = true;
         Get.offAllNamed(AppRouts.homeView);
       } else {
-        Get.snackbar('Registration Failed', 'Please try again later',
-            snackPosition: SnackPosition.BOTTOM);
+        Get.snackbar(
+          'Registration Failed',
+          'Please try again later',
+          snackPosition: SnackPosition.BOTTOM,
+        );
       }
     } catch (e) {
-      Get.snackbar('Error', 'Registration failed: $e',
-          snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar(
+        'Error',
+        'Registration failed: $e',
+        snackPosition: SnackPosition.BOTTOM,
+      );
     }
+  }
+
+  void getData() {
+    final val = authServicce.getUserData();
+    userData.assignAll(val);
   }
 
   void logout() async {
     await authServicce.signOut();
     isLoggedIn.value = false;
-    Get.offAllNamed(AppRouts.loginView);
+    userData.clear();
   }
 }
