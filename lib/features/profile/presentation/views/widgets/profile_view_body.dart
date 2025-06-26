@@ -1,11 +1,13 @@
+import 'package:booking_app/features/auth/controller/auth_controller.dart';
 import 'package:booking_app/features/profile/presentation/views/widgets/animated_logout_button.dart';
 import 'package:booking_app/features/profile/presentation/views/widgets/theme_mode_animation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
 import 'package:lottie/lottie.dart';
 
 class ProfileViewBody extends StatelessWidget {
-  const ProfileViewBody({super.key});
-
+  ProfileViewBody({super.key});
+  final authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Column(
