@@ -1,7 +1,6 @@
 import "package:booking_app/features/profile/controllers/theme_conroller.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
-import "package:get/utils.dart";
 import "package:lottie/lottie.dart";
 
 class ThemeModeAnimation extends StatefulWidget {
@@ -15,8 +14,8 @@ class _ThemeModeAnimationState extends State<ThemeModeAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   LottieComposition? _composition;
-  double _startFrame = 0;
-  double _endFrame = 270;
+  final double _startFrame = 0;
+  final double _endFrame = 270;
   final ThemeController themeConroller = Get.find<ThemeController>();
   @override
   void initState() {

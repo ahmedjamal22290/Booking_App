@@ -2,8 +2,6 @@ import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:booking_app/features/profile/controllers/theme_conroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:get/state_manager.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
