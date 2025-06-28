@@ -146,6 +146,8 @@ class _ThiredViewState extends State<ThiredView>
                           ? Colors.white
                           : Colors.black,
                     ),
+                    overflow: TextOverflow.ellipsis,
+
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 8.8),
@@ -154,6 +156,8 @@ class _ThiredViewState extends State<ThiredView>
                     child: Text(
                       'Get the opportunity to stay that you dream of at an affordable price',
                       style: Styles.description1,
+                      overflow: TextOverflow.ellipsis,
+
                       textAlign: TextAlign.center,
                     ),
                   ),

@@ -47,6 +47,7 @@ class FirstView extends StatelessWidget {
                       ? Colors.white
                       : Colors.black,
                 ),
+                overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 8.8),
@@ -56,6 +57,7 @@ class FirstView extends StatelessWidget {
                   'Start your trip stress-free with smooth check-ins and cozy stays designed for your comfort.',
                   style: Styles.description1,
                   textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ],

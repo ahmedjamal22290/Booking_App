@@ -107,6 +107,8 @@ class _SecondViewState extends State<SecondView>
                           ? Colors.white
                           : Colors.black,
                     ),
+                    overflow: TextOverflow.ellipsis,
+
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 8.8),
@@ -115,6 +117,8 @@ class _SecondViewState extends State<SecondView>
                     child: Text(
                       'Enjoy a warm, welcoming stay that feels just like home — with a touch of hotel luxury.',
                       style: Styles.description1,
+                      overflow: TextOverflow.ellipsis,
+
                       textAlign: TextAlign.center,
                     ),
                   ),
