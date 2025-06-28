@@ -18,9 +18,7 @@ class CustomMainContainer extends StatelessWidget {
           },
           child: Container(
             key: ValueKey(controller.isActive),
-            height:
-                (404.57 / 594.99).toDouble() *
-                MediaQuery.sizeOf(context).height,
+            height: 404.57 * 1.5,
             width: MediaQuery.sizeOf(context).width,
             decoration: BoxDecoration(
               color: Theme.of(context).cardColor,
