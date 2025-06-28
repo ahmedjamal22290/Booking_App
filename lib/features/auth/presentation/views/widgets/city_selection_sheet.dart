@@ -87,6 +87,7 @@ class _CitySelectionSheetState extends State<CitySelectionSheet> {
                 if (selectedCity != null) {
                   authController.getData();
                   authController.isLoggedIn.value = true;
+                  Get.offAllNamed(AppRouts.authGate);
                   log('message');
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('You selected: $selectedCity')),

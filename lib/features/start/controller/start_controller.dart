@@ -15,11 +15,12 @@ class StartController extends GetxController {
     if (page < 2) {
       page++;
       controller.nextPage(
-          duration: const Duration(milliseconds: 450),
-          curve: Curves.easeInOutCirc);
+        duration: const Duration(milliseconds: 450),
+        curve: Curves.easeInOutCirc,
+      );
       update();
     } else {
-      Get.offNamed(AppRouts.authGate);
+      Get.offNamed(AppRouts.loginView);
     }
   }
 

@@ -2,11 +2,7 @@ import 'package:booking_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class ImageDetailsWidget extends StatelessWidget {
-  const ImageDetailsWidget({
-    super.key,
-    required this.name,
-    required this.city,
-  });
+  const ImageDetailsWidget({super.key, required this.name, required this.city});
   final String name, city;
   @override
   Widget build(BuildContext context) {
@@ -17,14 +13,23 @@ class ImageDetailsWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            name,
-            style: Styles.detailsMainTitle,
+          Flexible(
+            child: Text(
+              name,
+              style: Styles.detailsMainTitle,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-          Text(
-            city,
-            style: Styles.itemsSubtitleStyle
-                .copyWith(fontSize: 12, color: const Color(0xffC2C2C2)),
+          Flexible(
+            child: Text(
+              city,
+              overflow: TextOverflow.ellipsis,
+
+              style: Styles.itemsSubtitleStyle.copyWith(
+                fontSize: 12,
+                color: const Color(0xffC2C2C2),
+              ),
+            ),
           ),
         ],
       ),

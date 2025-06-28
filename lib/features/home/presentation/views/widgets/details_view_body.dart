@@ -32,7 +32,7 @@ class DetailsViewBody extends StatelessWidget {
           ),
         ),
         Container(
-          height: (50.86 / 594.99) * MediaQuery.sizeOf(context).height,
+          height: 70.86,
           width: MediaQuery.sizeOf(context).width,
           decoration: BoxDecoration(
             color: Theme.of(context).brightness == Brightness.dark

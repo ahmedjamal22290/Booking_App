@@ -11,22 +11,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class AppRouts {
-  static const startView = '/';
+  static const startView = '/startView';
   static const homeView = '/homeView';
   static const detailsView = '/detailsView';
   static const viewAllView = '/viewAllView';
   static const loginView = '/loginView';
-  static const authGate = '/authGate';
+  static const authGate = '/';
   static const registerView = '/registerView';
   static List<GetPage<dynamic>> routs = [
-    GetPage(
-      name: startView,
-      page: () => const StartView(),
-    ),
-    GetPage(
-      name: detailsView,
-      page: () => const DetailsView(),
-    ),
+    GetPage(name: startView, page: () => const StartView()),
+    GetPage(name: detailsView, page: () => const DetailsView()),
     GetPage(
       name: homeView,
       page: () => HomeView(),

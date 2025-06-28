@@ -12,7 +12,7 @@ class AnimatedLogoutButton extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         authController.logout();
-        Get.offAllNamed(AppRouts.startView);
+        Get.offAllNamed(AppRouts.authGate);
       },
       child: SizedBox(
         height: 80,

@@ -8,6 +8,7 @@ class DetailsButton extends StatelessWidget {
   final String price, link;
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.sizeOf(context).width);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 11.73, vertical: 9.12),
       child: Row(
@@ -17,19 +18,23 @@ class DetailsButton extends StatelessWidget {
             children: [
               Text(
                 'price estimate',
+                overflow: TextOverflow.ellipsis,
+
                 style: Styles.description1.copyWith(
                   color: Theme.of(context).brightness == Brightness.dark
                       ? Colors.white
                       : const Color(0xff787878),
                 ),
               ),
-              const Spacer(),
+              Spacer(),
               Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     price,
                     style: Styles.itemsTitleStyle.copyWith(
                       fontSize: 19,
+
                       fontWeight: FontWeight.w500,
                       color: Theme.of(context).brightness == Brightness.dark
                           ? Colors.white
@@ -40,6 +45,8 @@ class DetailsButton extends StatelessWidget {
                     '/night',
                     style: Styles.itemsTitleStyle.copyWith(
                       fontSize: 13.2,
+                      overflow: TextOverflow.ellipsis,
+
                       fontWeight: FontWeight.w400,
                       color: const Color(0xff787878),
                     ),
@@ -49,23 +56,36 @@ class DetailsButton extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          GestureDetector(
-            onTap: () async {
-              if (await canLaunchUrl(Uri.parse(link))) {
-                await launchUrl(Uri.parse(link));
-              } else {
-                throw 'Could not launch $link';
-              }
-            },
-            child: Container(
-              height: 40.63,
-              width: 111.72,
-              decoration: BoxDecoration(
-                color: Constants.buttonsMainColor,
-                borderRadius: BorderRadius.circular(14),
-              ),
-              child: const Center(
-                child: Text('Reserve Now', style: Styles.buttonText2),
+          Flexible(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: GestureDetector(
+                onTap: () async {
+                  if (await canLaunchUrl(Uri.parse(link))) {
+                    await launchUrl(Uri.parse(link));
+                  } else {
+                    throw 'Could not launch $link';
+                  }
+                },
+                child: Container(
+                  height: 40.63,
+                  width: MediaQuery.sizeOf(context).width > 700
+                      ? 224
+                      : MediaQuery.sizeOf(context).width < 270
+                      ? 100
+                      : MediaQuery.sizeOf(context).width * 0.32,
+                  decoration: BoxDecoration(
+                    color: Constants.buttonsMainColor,
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Reserve Now',
+                      overflow: TextOverflow.ellipsis,
+                      style: Styles.buttonText2,
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
