@@ -1,5 +1,6 @@
 import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:booking_app/core/utils/auth_servicce.dart';
+import 'package:booking_app/features/auth/presentation/views/widgets/city_selection_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -90,5 +91,18 @@ class AuthController extends GetxController {
     await authServicce.signOut();
     isLoggedIn.value = false;
     userData.clear();
+  }
+
+  void showCitySelectionBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (context) {
+        return const CitySelectionSheet();
+      },
+    );
   }
 }
