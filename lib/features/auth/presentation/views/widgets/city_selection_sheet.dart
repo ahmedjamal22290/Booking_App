@@ -4,7 +4,6 @@ import 'package:booking_app/core/utils/app_routs.dart';
 import 'package:booking_app/features/auth/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 import 'package:get_storage/get_storage.dart';
 
 class CitySelectionSheet extends StatefulWidget {
