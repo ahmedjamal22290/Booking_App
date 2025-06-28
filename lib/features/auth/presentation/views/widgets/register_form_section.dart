@@ -10,9 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterFormSection extends StatelessWidget {
-  RegisterFormSection({
-    super.key,
-  });
+  RegisterFormSection({super.key});
 
   final AuthController authController = Get.find<AuthController>();
   final TextEditingController emailController = TextEditingController();
@@ -28,62 +26,53 @@ class RegisterFormSection extends StatelessWidget {
           Center(
             child: Text(
               'Register now',
-              style: Styles.headlines1.copyWith(
-                color: const Color(0xFF1C4BC3),
-              ),
+              style: Styles.headlines1.copyWith(color: const Color(0xFF1C4BC3)),
             ),
           ),
-          const SizedBox(
-            height: 120,
-          ),
+          const SizedBox(height: 120),
           Row(
             children: [
-              NameTextField(
+              Flexible(
+                child: NameTextField(
                   text: 'First Name',
-                  textEditingController: firstNameController),
-              const Spacer(),
-              NameTextField(
-                text: 'Last Name',
-                textEditingController: lastNameController,
-              )
+                  textEditingController: firstNameController,
+                ),
+              ),
+              // const Spacer(),
+              SizedBox(width: MediaQuery.sizeOf(context).width / 18),
+              Flexible(
+                child: NameTextField(
+                  text: 'Last Name',
+                  textEditingController: lastNameController,
+                ),
+              ),
             ],
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          EmailTextField(
-            textEditingController: emailController,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          PasswordTextField(
-            textEditingController: passwordController,
-          ),
-          const SizedBox(
-            height: 40,
-          ),
+          const SizedBox(height: 20),
+          EmailTextField(textEditingController: emailController),
+          const SizedBox(height: 20),
+          PasswordTextField(textEditingController: passwordController),
+          const SizedBox(height: 40),
           GestureDetector(
             onTap: () {
               if (authController.globalKey.currentState!.validate()) {
                 authController.register(
-                    email: emailController.text.trim(),
-                    password: passwordController.text.trim(),
-                    fName: firstNameController.text,
-                    lName: lastNameController.text);
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
+                  fName: firstNameController.text,
+                  lName: lastNameController.text,
+                );
               }
             },
             child: Container(
               width: MediaQuery.sizeOf(context).width / 1.5,
               height: 50,
               decoration: BoxDecoration(
-                  color: Constants.buttonsMainColor,
-                  borderRadius: BorderRadius.circular(18)),
+                color: Constants.buttonsMainColor,
+                borderRadius: BorderRadius.circular(18),
+              ),
               child: const Center(
-                child: Text(
-                  'Register',
-                  style: Styles.buttonText1,
-                ),
+                child: Text('Register', style: Styles.buttonText1),
               ),
             ),
           ),
@@ -92,7 +81,7 @@ class RegisterFormSection extends StatelessWidget {
             constantText: "You already have an accoun? ",
             navText: 'Login Now',
             navPage: AppRouts.loginView,
-          )
+          ),
         ],
       ),
     );

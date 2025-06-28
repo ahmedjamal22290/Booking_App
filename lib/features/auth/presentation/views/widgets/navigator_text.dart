@@ -15,24 +15,32 @@ class NavigatorText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          constantText,
-          style: TextStyle(
-            color: Theme.of(context).brightness == Brightness.dark
-                ? Colors.grey
-                : Colors.black,
-            fontWeight: FontWeight.bold,
+        Flexible(
+          child: Text(
+            constantText,
+            overflow: TextOverflow.ellipsis,
+
+            style: TextStyle(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.grey
+                  : Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            Get.offNamed(navPage);
-          },
-          child: Text(
-            navText,
-            style: const TextStyle(
-              color: Constants.buttonsMainColor,
-              fontWeight: FontWeight.bold,
+        Flexible(
+          child: GestureDetector(
+            onTap: () {
+              Get.offNamed(navPage);
+            },
+            child: Text(
+              navText,
+              overflow: TextOverflow.ellipsis,
+
+              style: const TextStyle(
+                color: Constants.buttonsMainColor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
