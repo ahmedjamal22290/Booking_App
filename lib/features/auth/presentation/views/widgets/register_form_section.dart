@@ -38,7 +38,6 @@ class RegisterFormSection extends StatelessWidget {
                   textEditingController: firstNameController,
                 ),
               ),
-              // const Spacer(),
               SizedBox(width: MediaQuery.sizeOf(context).width / 18),
               Flexible(
                 child: NameTextField(
