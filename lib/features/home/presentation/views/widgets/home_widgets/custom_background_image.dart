@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomBackgroundImage extends StatelessWidget {
-  const CustomBackgroundImage({
-    super.key,
-  });
+  const CustomBackgroundImage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +12,7 @@ class CustomBackgroundImage extends StatelessWidget {
         child: Image.asset(
           'assets/images/home_view_images/Rectangle 13.jpg',
           width: MediaQuery.sizeOf(context).width,
-          height: 0.409670 * MediaQuery.sizeOf(context).height,
+          height: 205,
           fit: BoxFit.cover,
         ),
       ),
