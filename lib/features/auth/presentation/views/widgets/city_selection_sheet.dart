@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:booking_app/core/utils/app_routs.dart';
+import 'package:booking_app/features/auth/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/utils.dart';
@@ -31,13 +34,13 @@ class _CitySelectionSheetState extends State<CitySelectionSheet> {
     'Chicago',
     'Bangkok',
   ];
-
+  final AuthController authController = Get.find<AuthController>();
   String? selectedCity;
 
   @override
   Widget build(BuildContext context) {
     final isSmall = MediaQuery.of(context).size.width < 600;
-
+    log('city selction');
     return Padding(
       padding: MediaQuery.of(context).viewInsets,
       child: Container(
@@ -52,8 +55,9 @@ class _CitySelectionSheetState extends State<CitySelectionSheet> {
             const SizedBox(height: 16),
             Autocomplete<String>(
               optionsBuilder: (TextEditingValue textEditingValue) {
-                if (textEditingValue.text.isEmpty)
+                if (textEditingValue.text.isEmpty) {
                   return const Iterable<String>.empty();
+                }
                 return worldCities.where(
                   (city) => city.toLowerCase().contains(
                     textEditingValue.text.toLowerCase(),
@@ -81,7 +85,9 @@ class _CitySelectionSheetState extends State<CitySelectionSheet> {
             ElevatedButton(
               onPressed: () {
                 if (selectedCity != null) {
-                  Get.offAllNamed(AppRouts.homeView);
+                  authController.getData();
+                  authController.isLoggedIn.value = true;
+                  log('message');
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('You selected: $selectedCity')),
                   );

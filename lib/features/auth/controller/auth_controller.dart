@@ -1,4 +1,5 @@
-import 'package:booking_app/core/utils/app_routs.dart';
+import 'dart:developer';
+
 import 'package:booking_app/core/utils/auth_servicce.dart';
 import 'package:booking_app/features/auth/presentation/views/widgets/city_selection_sheet.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +32,7 @@ class AuthController extends GetxController {
         password: password,
       );
       if (response.session != null) {
-        isLoggedIn.value = true;
-        Get.offAllNamed(AppRouts.homeView);
+        showCitySelectionBottomSheet(Get.context!);
       } else {
         Get.snackbar(
           'Login Faild',
@@ -64,8 +64,7 @@ class AuthController extends GetxController {
       );
 
       if (response.session != null) {
-        isLoggedIn.value = true;
-        Get.offAllNamed(AppRouts.homeView);
+        showCitySelectionBottomSheet(Get.context!);
       } else {
         Get.snackbar(
           'Registration Failed',
