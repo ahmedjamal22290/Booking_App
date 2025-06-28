@@ -17,11 +17,13 @@ class HomeView extends StatelessWidget {
   HomeView({super.key});
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Obx(() {
-      return Scaffold(
-        bottomNavigationBar: CustomNavigatorBar(),
-        body: pages[navController.selectedIndex.value],
-      );
-    }));
+    return SafeArea(
+      child: Obx(() {
+        return Scaffold(
+          bottomNavigationBar: CustomNavigatorBar(),
+          body: pages[navController.selectedIndex.value],
+        );
+      }),
+    );
   }
 }
