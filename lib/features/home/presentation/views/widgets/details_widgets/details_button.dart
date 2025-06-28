@@ -8,7 +8,6 @@ class DetailsButton extends StatelessWidget {
   final String price, link;
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.sizeOf(context).width);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 11.73, vertical: 9.12),
       child: Row(
