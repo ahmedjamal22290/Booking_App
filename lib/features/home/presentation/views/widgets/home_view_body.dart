@@ -19,38 +19,49 @@ class HomeViewBody extends StatelessWidget {
       builder: (context, _) {
         return SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height + 30,
-            child: Stack(
+
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: MediaQuery.sizeOf(context).height,
+            ),
+            child: Column(
               children: [
-                const CustomBackgroundImage(),
-                ClipRRect(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: controller.blurAnimation.value,
-                      sigmaY: controller.blurAnimation.value,
+                Stack(
+                  children: [
+                    const CustomBackgroundImage(),
+                    ClipRRect(
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: controller.blurAnimation.value,
+                          sigmaY: controller.blurAnimation.value,
+                        ),
+                        child: Container(color: Colors.black.withAlpha(0)),
+                      ),
                     ),
-                    child: Container(color: Colors.black.withAlpha(0)),
-                  ),
-                ),
-                Positioned(
-                  top: 47.02,
-                  left: 0,
-                  right: 0,
-                  child: Opacity(
-                    opacity: controller.textOpacityAnimation.value,
-                    child: const WelcomeBar(),
-                  ),
-                ),
-                Positioned(
-                  top: controller.searchAnimation.value,
-                  left: 11.52,
-                  right: 11.52,
-                  child: const CustomSearchTextField(),
-                ),
-                Positioned(
-                  top: controller.mainContanierAnimation.value,
-                  child: const CustomMainContainer(),
+                    Positioned(
+                      top: 47.02,
+                      left: 0,
+                      right: 0,
+                      child: Opacity(
+                        opacity: controller.textOpacityAnimation.value,
+                        child: const WelcomeBar(),
+                      ),
+                    ),
+                    Positioned(
+                      top: controller.searchAnimation.value,
+                      left: 11.52,
+                      right: 11.52,
+                      child: const CustomSearchTextField(),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: controller.mainContanierAnimation.value,
+                      ),
+                      child: IntrinsicHeight(
+                        child: const CustomMainContainer(),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

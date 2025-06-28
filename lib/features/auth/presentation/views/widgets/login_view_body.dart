@@ -25,8 +25,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   Widget build(BuildContext context) {
     final screenH = MediaQuery.of(context).size.height;
     return SingleChildScrollView(
-      padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
       child: Stack(
         children: [
           CustomAnimatedBackground(animated: animated, screenH: screenH),

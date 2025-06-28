@@ -47,9 +47,7 @@ class ExploreHotelsSection extends StatelessWidget {
             ),
             const SizedBox(height: 9.72),
             SizedBox(
-              height:
-                  (125.26 / 594.99).toDouble() *
-                  MediaQuery.sizeOf(context).height,
+              height: 125.26 * 1.5,
               width: MediaQuery.sizeOf(context).width,
               child: ExploreHotelsBuilder(
                 exploreHotels: controller.exploreHotels,
