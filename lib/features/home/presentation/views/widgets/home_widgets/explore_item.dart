@@ -6,10 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ExploreItem extends StatelessWidget {
-  const ExploreItem({
-    super.key,
-    required this.hotelModel,
-  });
+  const ExploreItem({super.key, required this.hotelModel});
   final HotelModel hotelModel;
   @override
   Widget build(BuildContext context) {
@@ -19,12 +16,9 @@ class ExploreItem extends StatelessWidget {
       },
       child: Container(
         margin: const EdgeInsets.only(right: 11.73),
-        height:
-            (160.26 / 594.99).toDouble() * MediaQuery.sizeOf(context).height,
-        width: (146.52 / 274.46).toDouble() * MediaQuery.sizeOf(context).width,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(21.66),
-        ),
+        height: 160.26 * 1.5,
+        width: 146.52 * 1.5,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(21.66)),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(21.66),
           child: Stack(
@@ -47,20 +41,26 @@ class ExploreItem extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                top: 115.36,
-                right: 0,
-                left: 0,
-                bottom: 1.64,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      hotelModel.name,
-                      style: Styles.itemsSubtitleStyle,
-                    ),
-                  ],
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12.0,
+                    vertical: 8,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Flexible(
+                        child: Text(
+                          hotelModel.name,
+                          style: Styles.itemsSubtitleStyle,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
