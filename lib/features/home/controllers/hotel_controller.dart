@@ -1,4 +1,5 @@
 import 'package:booking_app/core/data/models/hotel_model.dart';
+import 'package:booking_app/features/auth/controller/auth_controller.dart';
 
 import 'package:booking_app/features/home/data/repos/hotel_repo.dart';
 import 'package:booking_app/features/watchlist/controller/watchlist_controller.dart';
@@ -11,6 +12,8 @@ class HotelController extends GetxController {
   final _storage = GetStorage();
   final HotelRepo hotelRepo;
   WatchlistController watchlistController = Get.find<WatchlistController>();
+  AuthController authController = Get.find<AuthController>();
+
   var isLoadingNearby = false.obs;
   var isLoadingExplore = false.obs;
 

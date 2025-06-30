@@ -2,16 +2,25 @@ import 'package:booking_app/core/utils/auth_servicce.dart';
 import 'package:booking_app/features/auth/presentation/views/widgets/city_selection_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class AuthController extends GetxController {
   final GlobalKey<FormState> globalKey = GlobalKey<FormState>();
-
   final isLoggedIn = false.obs;
   final AuthServicce authServicce = AuthServicce();
   final Map<String, String> userData = <String, String>{}.obs;
+  RxString slecetedCity = "".obs;
+  bool didShowCitySheet = false;
+  bool didNavigateToHome = false;
+
   @override
   void onInit() {
     super.onInit();
+    if (GetStorage().read("city") != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        slecetedCity = "city".obs;
+      });
+    }
     checkLoginStatus();
   }
 
